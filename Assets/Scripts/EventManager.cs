@@ -39,4 +39,32 @@ public class EventManager : MonoBehaviour
             onMicrogameStop(result);
         }
     }
+
+    // Main Menu Events
+    public event Action onMainMenuPlay;
+    public void MainMenuPlay()
+    {
+        if (onMainMenuPlay != null)
+        {
+            onMainMenuPlay();
+        }
+    }
+
+    public event Action onMainMenuExit;
+    public void MainMenuExit()
+    {
+        if (onMainMenuExit != null)
+        {
+            onMainMenuExit();
+        }
+    }
+
+    public event Action onLevelSelectMainMenu;
+    public void LevelSelectMainMenu()
+    {
+        if (onLevelSelectMainMenu != null)
+        {
+            onLevelSelectMainMenu();
+        }
+    }
 }
