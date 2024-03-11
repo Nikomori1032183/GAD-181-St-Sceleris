@@ -15,6 +15,8 @@ MonoBehaviour:
   sceneDatasByGuid:
     keys:
     - 9fc0d4010bbf28b4594072e72b8655ab
+    - 
+    - 3a81cd78b61e3854799188d2ff3b3b41
     values:
     - goDatasByGlobalId:
         keys:
@@ -26,9 +28,45 @@ MonoBehaviour:
         - iColor: 0
           icon: Light Icon
       goDatasByInstanceId:
-        keys: fa580000f4580000
+        keys: fa580000f45800007a7f0000747f0000
         values:
         - iColor: 0
           icon: EventSystem Icon
         - iColor: 0
           icon: Light Icon
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: Light Icon
+    - goDatasByGlobalId:
+        keys: []
+        values: []
+      goDatasByInstanceId:
+        keys: 
+        values: []
+    - goDatasByGlobalId:
+        keys:
+        - GlobalObjectId_V1-2-3a81cd78b61e3854799188d2ff3b3b41-963194225-0
+        - GlobalObjectId_V1-2-3a81cd78b61e3854799188d2ff3b3b41-705507993-0
+        - GlobalObjectId_V1-2-3a81cd78b61e3854799188d2ff3b3b41-1943308942-0
+        - GlobalObjectId_V1-2-3a81cd78b61e3854799188d2ff3b3b41-1330684449-0
+        values:
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: StandaloneInputModule Icon
+      goDatasByInstanceId:
+        keys: 947f00008e7f00002a2bffff4a2bffff
+        values:
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: StandaloneInputModule Icon
