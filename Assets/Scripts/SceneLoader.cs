@@ -41,13 +41,6 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
-
-
-    // System Scenes
-    // Game Logic
-    // UI
-    // Audio
-
     // Menu Scenes
     // Main Menu
     private void LoadMainMenu()
@@ -71,6 +64,6 @@ public class SceneLoader : MonoBehaviour
         UnloadScene("LevelSelect");
     }
 
-    // Minigame Scenes
+    // Microgame Scenes
 
 }

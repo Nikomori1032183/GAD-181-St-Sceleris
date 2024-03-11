@@ -59,12 +59,28 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    // Level Select Events
     public event Action onLevelSelectMainMenu;
     public void LevelSelectMainMenu()
     {
         if (onLevelSelectMainMenu != null)
         {
             onLevelSelectMainMenu();
+        }
+    }
+
+    public enum SelectableClasses
+    {
+        Planning, Stealth, Theft, Weapons, Explosives, Escape
+    }
+
+
+    public event Action<SelectableClasses> onClassSelect;
+    public void ClassSelect(SelectableClasses selectedClass)
+    {
+        if (onClassSelect != null)
+        {
+            onClassSelect(selectedClass);
         }
     }
 }
