@@ -7,7 +7,6 @@ public class MainMenu : MonoBehaviour
 {
     Button startButton, exitButton;
 
-    // Start is called before the first frame update
     void Start()
     {
         Button[] buttons = GetComponentsInChildren<Button>();
@@ -18,7 +17,6 @@ public class MainMenu : MonoBehaviour
         exitButton.onClick.AddListener(ExitButton);
     }
 
-    // Update is called once per frame
     void Update()
     {
         

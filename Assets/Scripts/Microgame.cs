@@ -25,8 +25,11 @@ public abstract class Microgame : MonoBehaviour
         result = this.result;
     }
 
-    protected virtual void DisplayObjective()
+    protected void DisplayObjective()
     {
+        // Play In Animation
+        // Wait for objectiveTime
+        // Play Out Animation
         EventManager.current.DisplayObjective(objectiveName, objectiveTime);
     }
 
