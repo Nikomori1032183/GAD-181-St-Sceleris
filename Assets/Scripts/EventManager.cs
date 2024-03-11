@@ -7,42 +7,36 @@ public class EventManager : MonoBehaviour
 {
     public static EventManager current;
 
-    void Start()
+    private void Awake()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        current = this;
     }
 
     // Microgame Events
-
-    public event Action onDisplayObjective;
-    public void DisplayObjective()
+    public event Action<string, float> onDisplayObjective;
+    public void DisplayObjective(string objectiveName, float objectiveTime)
     {
         if (onDisplayObjective != null)
         {
-            onDisplayObjective();
+            onDisplayObjective(objectiveName, objectiveTime);
         }
     }
 
-    public event Action onMicrogamePlay;
-    public void MicrogamePlay()
+    public event Action<float> onMicrogamePlay;
+    public void MicrogamePlay(float playTime)
     {
         if (onMicrogamePlay != null)
         {
-            onMicrogamePlay();
+            onMicrogamePlay(playTime);
         }
     }
 
-    public event Action onMicrogameStop;
-    public void MicrogameStop()
+    public event Action<bool> onMicrogameStop;
+    public void MicrogameStop(bool result)
     {
         if (onMicrogameStop != null)
         {
-            onMicrogameStop();
+            onMicrogameStop(result);
         }
     }
 }

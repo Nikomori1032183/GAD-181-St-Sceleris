@@ -8,6 +8,8 @@ public abstract class Microgame : MonoBehaviour
     protected string objectiveName;
     float objectiveTime, playTime;
 
+    // With all virtual methods make sure when overriding to call base.MethodName(); at the start
+
     protected virtual void Start()
     {
         
@@ -25,17 +27,16 @@ public abstract class Microgame : MonoBehaviour
 
     protected virtual void DisplayObjective()
     {
-        // Tells UI Manager To Display 
-        //EventManager.current
+        EventManager.current.DisplayObjective(objectiveName, objectiveTime);
     }
 
     protected virtual void PlayMicrogame()
     {
-        // Tell Event Manager
+        EventManager.current.MicrogamePlay(playTime);
     }
 
     protected virtual void StopMicrogame()
     {
-        // Tell Event Manager
+        EventManager.current.MicrogameStop(result);
     }
 }
