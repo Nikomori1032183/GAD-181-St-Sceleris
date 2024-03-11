@@ -12,7 +12,7 @@ public abstract class Microgame : MonoBehaviour
 
     protected virtual void Start()
     {
-        
+
     }
 
     public bool GetResult()
