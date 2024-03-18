@@ -34,8 +34,16 @@ MonoBehaviour:
         - iColor: 0
           icon: Light Icon
       goDatasByInstanceId:
-        keys: 3e59000038590000
+        keys: 3e59000038590000aa7f0000a47f0000a8810000a2810000
         values:
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: Light Icon
         - iColor: 0
           icon: EventSystem Icon
         - iColor: 0
@@ -56,7 +64,7 @@ MonoBehaviour:
         - iColor: 0
           icon: Light Icon
       goDatasByInstanceId:
-        keys: d0590000ca590000de590000d859000050f5ffff
+        keys: d0590000ca590000de590000d859000050f5ffffce7f0000c87f0000
         values:
         - iColor: 0
           icon: Camera Icon
@@ -68,6 +76,10 @@ MonoBehaviour:
           icon: StandaloneInputModule Icon
         - iColor: 0
           icon: Canvas Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Light Icon
     - goDatasByGlobalId:
         keys: []
         values: []
@@ -79,6 +91,7 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-281a480bd1d0a344ebdf7fe7814249a0-1330684449-0
         - GlobalObjectId_V1-2-281a480bd1d0a344ebdf7fe7814249a0-1943308942-0
         - GlobalObjectId_V1-2-281a480bd1d0a344ebdf7fe7814249a0-1113964744-0
+        - GlobalObjectId_V1-2-281a480bd1d0a344ebdf7fe7814249a0-277380763-0
         values:
         - iColor: 0
           icon: StandaloneInputModule Icon
@@ -86,8 +99,10 @@ MonoBehaviour:
           icon: EventSystem Icon
         - iColor: 0
           icon: Canvas Icon
+        - iColor: 0
+          icon: cs Script Icon
       goDatasByInstanceId:
-        keys: d8590000de59000050f5ffff
+        keys: d8590000de59000050f5ffffe67f0000ec7f0000e07f00007a24ffff4c21ffff
         values:
         - iColor: 0
           icon: StandaloneInputModule Icon
@@ -95,6 +110,16 @@ MonoBehaviour:
           icon: EventSystem Icon
         - iColor: 0
           icon: Canvas Icon
+        - iColor: 0
+          icon: StandaloneInputModule Icon
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: Canvas Icon
+        - iColor: 0
+          icon: cs Script Icon
+        - iColor: 0
+          icon: cs Script Icon
     - goDatasByGlobalId:
         keys:
         - GlobalObjectId_V1-2-e897b116599b52b48acab40453a088c0-602043019-0
@@ -108,8 +133,14 @@ MonoBehaviour:
         - iColor: 0
           icon: PreMatQuad
       goDatasByInstanceId:
-        keys: aee8ffff96e8ffffaee7ffff
+        keys: aee8ffff96e8ffffaee7ffffb6800000e4800000a4800000
         values:
+        - iColor: 0
+          icon: Canvas Icon
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: PreMatQuad
         - iColor: 0
           icon: Canvas Icon
         - iColor: 0
@@ -123,8 +154,10 @@ MonoBehaviour:
         - iColor: 0
           icon: AudioSource Icon
       goDatasByInstanceId:
-        keys: 34e9ffff
+        keys: 34e9ffffba7f0000
         values:
+        - iColor: 0
+          icon: AudioSource Icon
         - iColor: 0
           icon: AudioSource Icon
     - goDatasByGlobalId:
@@ -149,8 +182,48 @@ MonoBehaviour:
         - iColor: 0
           icon: 
       goDatasByInstanceId:
-        keys: 0abaffff12baffff08baffff0cbaffff
+        keys: 0abaffff12baffff08baffff0cbafffffc7f0000368000000880000052800000da81000014820000e6810000308200003683000070830000428300008c8300000686000040860000128600005c86000074960000ae96000080960000ca960000
         values:
+        - iColor: 0
+          icon: Canvas Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: Canvas Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: Canvas Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: Canvas Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: Canvas Icon
+        - iColor: 0
+          icon: 
+        - iColor: 0
+          icon: EventSystem Icon
+        - iColor: 0
+          icon: 
         - iColor: 0
           icon: Canvas Icon
         - iColor: 0

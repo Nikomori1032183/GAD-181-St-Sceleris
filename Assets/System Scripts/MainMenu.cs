@@ -36,5 +36,8 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Exit Button Click");
 
         EventManager.current.MainMenuExit();
+
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
