@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,59 +6,66 @@ using VInspector;
 
 public class CameraMove : MonoBehaviour
 {
+    /// <summary>
+    /// Will change the camera position to sit above the class when activated. Moves from it's current position to the predetermined camera
+    /// position for the classroom. All adjustable. Will move Current Position -> Origin Position -> New position.
+    /// </summary>
     // Start is called before the first frame update
     [SerializeField] private Vector3 originPoint = new Vector3(0, 52, 0);
     [SerializeField] float moveSpeed;
     [SerializeField] private Vector3[] cameraPositions = new Vector3[6];
     [SerializeField] private EventManager.SelectableClasses cameraMove;
     private bool isAtOrigin = false;
+    private bool running = false;
     void Start()
     {
         EventManager.current.onClassSelect += ClassCameraPosition;
     }
 
-    // Update is called once per frame
+    //Switch case controlls where the camera moves to. Array of Vector3's is indexed for the specific locations.
     void Update()
     {
+
+        if (running)
+        {
             switch (cameraMove)
             {
-
                 case EventManager.SelectableClasses.Explosives:
-                StartCoroutine(CameraMovement(0));
-                break;
+                    CameraMovement(0);
+                    break;
 
                 case EventManager.SelectableClasses.Weapons:
-                StartCoroutine(CameraMovement(1));
-                break;
+                    CameraMovement(1);
+                    break;
 
                 case EventManager.SelectableClasses.Stealth:
-                StartCoroutine(CameraMovement(2));
-                break;
+                    CameraMovement(2);
+                    break;
 
                 case EventManager.SelectableClasses.Theft:
-                StartCoroutine(CameraMovement(3));
-                break;
+                    CameraMovement(3);
+                    break;
 
                 case EventManager.SelectableClasses.Planning:
-                StartCoroutine(CameraMovement(4));
-                break;
+                    CameraMovement(4);
+                    break;
 
                 case EventManager.SelectableClasses.Escape:
-                StartCoroutine(CameraMovement(5));
-                break;
+                    CameraMovement(5);
+                    break;
             }
+        }
     }
+
     void ClassCameraPosition(EventManager.SelectableClasses className)
     {
+        running = true;
         cameraMove = className; 
     }
+
+    //Camera movement checks if it is at the origin point before moving.
     void CameraMovement(int index)
     {
-
-        //if (transform.position == originPoint)
-        //{
-        //    isAtOrigin = true;
-        //}
         if (transform.position == originPoint)
         {
             isAtOrigin = true;
@@ -66,6 +74,7 @@ public class CameraMove : MonoBehaviour
         else if (transform.position == cameraPositions[index])
         {
             isAtOrigin = false;
+            running = false;
         }
 
         if (isAtOrigin)
@@ -77,15 +86,5 @@ public class CameraMove : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, originPoint, moveSpeed * Time.deltaTime); // Return to origin
         }
-
-        yield return null;
-        //if (isIn)
-        //{
-        //    transform.position = Vector3.MoveTowards(transform.position, cameraPositions[index], moveSpeed * Time.deltaTime); // Go to pos
-        //    yield return new WaitForSeconds(2);
-        //    transform.position = Vector3.MoveTowards(transform.position, originPoint, moveSpeed * Time.deltaTime); // Return to origin
-        //    yield return new WaitForSeconds(2);
-        //    isIn = false;
-        //}
     }
 }
