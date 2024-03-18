@@ -19,7 +19,8 @@ public class ObjectiveTextAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //EventManager.current.onDisplayObjective += DisplayObjective;
+        EventManager.current.onDisplayObjective += DisplayObjective;
+        EventManager.current.onHideObjective += HideObjective;
         activeObjective = Instantiate(objectivePrefab, screenStart, Quaternion.identity, GetComponentInParent<Transform>()) as GameObject;
     }
     void Update()
