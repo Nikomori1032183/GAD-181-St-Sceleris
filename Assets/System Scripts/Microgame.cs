@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VInspector;
 
 public abstract class Microgame : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public abstract class Microgame : MonoBehaviour
     //    result = this.result;
     //}
 
+    [Button]
     public void StartMicrogame()
     {
         StartCoroutine(DisplayObjective());
@@ -34,7 +36,7 @@ public abstract class Microgame : MonoBehaviour
     protected IEnumerator DisplayObjective()
     {
         // Tell UI Manager to display Objective Text
-        EventManager.current.DisplayObjective(objectiveName);
+        EventManager.current.DisplayObjective();
 
         // Wait Time
         yield return new WaitForSeconds(objectiveTime);
