@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,7 +16,7 @@ public class SceneLoader : MonoBehaviour
         EventManager.current.onLevelSelectMainMenu += LoadMainMenu;
         EventManager.current.onLevelSelectMainMenu += UnloadLevelSelect;
 
-        //LoadScene("UserInterface");
+        EventManager.current.onMicrogameSelected += LoadMicrogameScene;
     }
 
     void Update()
@@ -30,6 +31,11 @@ public class SceneLoader : MonoBehaviour
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
         }
+
+        else
+        {
+            Debug.Log("Scene Name Not Found");
+        }
     }
 
     // Unload Scene
@@ -38,6 +44,11 @@ public class SceneLoader : MonoBehaviour
         if (SceneManager.GetSceneByName(sceneName) != null)
         {
             SceneManager.UnloadSceneAsync(sceneName);
+        }
+
+        else
+        {
+            Debug.Log("Scene Name Not Found");
         }
     }
 
@@ -65,5 +76,8 @@ public class SceneLoader : MonoBehaviour
     }
 
     // Microgame Scenes
-
+    private void LoadMicrogameScene(string microgameSceneName)
+    {
+        LoadScene(microgameSceneName);
+    }
 }

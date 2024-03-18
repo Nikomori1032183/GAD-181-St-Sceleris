@@ -12,13 +12,32 @@ public class EventManager : MonoBehaviour
         current = this;
     }
 
+    // Microgame Manager Events
+    public event Action<string> onMicrogameSelected;
+    public void SelectMicrogame(string microgameName)
+    {
+        if (onMicrogameSelected != null)
+        {
+            onMicrogameSelected(microgameName);
+        }
+    }
+
     // Microgame Events
-    public event Action<string, float> onDisplayObjective;
-    public void DisplayObjective(string objectiveName, float objectiveTime)
+    public event Action<string> onDisplayObjective;
+    public void DisplayObjective(string objectiveName)
     {
         if (onDisplayObjective != null)
         {
-            onDisplayObjective(objectiveName, objectiveTime);
+            onDisplayObjective(objectiveName);
+        }
+    }
+
+    public event Action onHideObjective;
+    public void HideObjective()
+    {
+        if (onHideObjective != null)
+        {
+            onHideObjective();
         }
     }
 
@@ -81,6 +100,16 @@ public class EventManager : MonoBehaviour
         if (onClassSelect != null)
         {
             onClassSelect(selectedClass);
+        }
+    }
+
+    // Timer Events
+    public event Action onTimerStop;
+    public void TimerStop()
+    {
+        if (onTimerStop != null)
+        {
+            onTimerStop();
         }
     }
 }
