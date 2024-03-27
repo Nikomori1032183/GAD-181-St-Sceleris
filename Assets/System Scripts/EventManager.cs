@@ -112,4 +112,14 @@ public class EventManager : MonoBehaviour
             onTimerStop();
         }
     }
+
+    // buttonmashstab events
+    public event Action onGuardStab;
+    public void GuardStab()
+    {
+        if(onGuardStab != null)
+        {
+            onGuardStab();
+        }
+    }
 }

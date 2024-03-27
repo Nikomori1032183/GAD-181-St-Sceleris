@@ -6,13 +6,12 @@ public class CollisionDetection : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        
-
+  
         if (collision.gameObject.GetComponent<KnifeMovement>())
         {
-
             Debug.Log("Collision with obstacle detected!");
 
+            EventManager.current.GuardStab();
         }
     }
 }
