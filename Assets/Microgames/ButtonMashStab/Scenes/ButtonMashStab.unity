@@ -167,7 +167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5e583742f128f94987f4b771b94fb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playing: 1
+  objectiveName: Stab the Guard
+  objectiveTime: 1
+  playTime: 10
   knife: {fileID: 2052315712}
+  stabQuota: 10
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,7 +367,7 @@ Transform:
   m_GameObject: {fileID: 823552439}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.2, y: 0.82, z: 0}
+  m_LocalPosition: {x: 10.2, y: -0.11, z: 0}
   m_LocalScale: {x: 1, y: 6.6803, z: 22.067}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -611,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e64ab1034d57dc4aa5c22de1c3c584e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7.26
+  moveSpeed: 35
   guard: {fileID: 823552439}
 --- !u!136 &2052315713
 CapsuleCollider:

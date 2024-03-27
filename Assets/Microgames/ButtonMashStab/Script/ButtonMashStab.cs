@@ -6,6 +6,7 @@ using VInspector;
 public class ButtonMashStab : Microgame
 {
     [SerializeField] KnifeMovement knife;
+    [SerializeField] int stabQuota;
     int timesStabbed = 0;
 
     // Start is called before the first frame update
@@ -16,27 +17,37 @@ public class ButtonMashStab : Microgame
         EventManager.current.onGuardStab += GuardStabbed;
     }
 
-    protected override void PlayMicrogame()
+    override protected void PlayMicrogame()
     {
         base.PlayMicrogame();
     }
 
-    protected override void StopMicrogame()
+    override protected void StopMicrogame()
     {
         base.StopMicrogame();
     }
     void Stab()
     {
-        if (!knife.GetReturning())
+        if (playing)
         {
-            knife.SetStabbing(true);
-        }         
+            if (!knife.GetReturning())
+            {
+                knife.SetStabbing(true);
+            }
+        }
     }
 
     void GuardStabbed()
     {
         timesStabbed++;
         Debug.Log(timesStabbed);
+
         knife.SetReturning(true);
+        
+        if (timesStabbed >= stabQuota)
+        {
+            result = true;
+            Debug.Log("You Won!");
+        }
     }
 }
