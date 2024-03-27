@@ -23,12 +23,12 @@ public class EventManager : MonoBehaviour
     }
 
     // Microgame Events
-    public event Action<string> onDisplayObjective;
-    public void DisplayObjective(string objectiveName)
+    public event Action onDisplayObjective;
+    public void DisplayObjective()
     {
         if (onDisplayObjective != null)
         {
-            onDisplayObjective(objectiveName);
+            onDisplayObjective();
         }
     }
 
