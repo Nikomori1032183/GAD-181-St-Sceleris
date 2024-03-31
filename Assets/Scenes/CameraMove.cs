@@ -17,7 +17,9 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private EventManager.SelectableClasses cameraMove;
     private bool isAtOrigin = false;
     private bool running = false;
-    void Start()
+    
+    //Awake because load order is incorrect from scene heirarchy. Ensures it loads properly if heirarchy is not consistent. Remember this for other errors.
+    void Awake()
     {
         EventManager.current.onClassSelect += ClassCameraPosition;
     }
@@ -39,6 +41,7 @@ public class CameraMove : MonoBehaviour
                     break;
 
                 case EventManager.SelectableClasses.Stealth:
+                    Debug.Log(cameraMove);
                     CameraMovement(2);
                     break;
 
