@@ -6,13 +6,16 @@ using VInspector;
 public abstract class Microgame : MonoBehaviour
 {
     protected bool result = false;
-    protected string objectiveName;
-    protected float objectiveTime, playTime;
+    protected bool playing;
+    [SerializeField] protected string objectiveName = "";
+    [SerializeField] protected float objectiveTime = 1;
+    [SerializeField] protected float playTime = 10;
 
     // With all virtual methods make sure when overriding to call base.MethodName(); at the start
 
     protected virtual void Start()
     {
+        EventManager.current.onTimerStop += PlayMicrogame;
         EventManager.current.onTimerStop += StopMicrogame;
     }
 
@@ -27,7 +30,6 @@ public abstract class Microgame : MonoBehaviour
     //    result = this.result;
     //}
 
-    [Button]
     public void StartMicrogame()
     {
         StartCoroutine(DisplayObjective());
@@ -51,10 +53,12 @@ public abstract class Microgame : MonoBehaviour
     protected virtual void PlayMicrogame() // Game Begin
     {
         EventManager.current.MicrogamePlay(playTime);
+        playing = true;
     }
 
     protected virtual void StopMicrogame() // Game Stop
     {
         EventManager.current.MicrogameStop(result);
+        playing = false;
     }
 }

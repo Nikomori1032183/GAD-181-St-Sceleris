@@ -32,11 +32,6 @@ public class LevelSelect : MonoBehaviour
         escapeButton.onClick.AddListener(EscapeButton);
     }
 
-    private void Update()
-    {
-
-    }
-
     private void MainMenuButton() // Return to Main Menu
     {
         Debug.Log("Main Menu Click");
