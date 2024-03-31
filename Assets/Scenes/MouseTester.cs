@@ -5,8 +5,10 @@ using UnityEngine;
 public class MouseTester : MonoBehaviour
 {
     public GameObject testObject;
-    public float zPos = 0f;
     public Vector3 mousePosition;
+    public Vector3 hitPoint;
+    public float maxDist = 10f;
+    public float speed = 15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +18,27 @@ public class MouseTester : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       mousePosition = InputManager.current.GetMousePosition(); 
-       Debug.Log(InputManager.current.GetMousePosition());
-       mousePosition = new Vector3(mousePosition.x, mousePosition.y, mousePosition.z);
-       testObject.transform.position = mousePosition;
+        MoveObject();
+        CastToPoint();
+    }
+    void MoveObject()
+    {
+        mousePosition = InputManager.current.GetMousePosition();
+        testObject.transform.position = Vector3.MoveTowards(testObject.transform.position, hitPoint, speed * Time.deltaTime);
+    }
+    void CastToPoint()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, maxDist))
+        {
+            hitPoint = hit.point;
+        }
+        else
+        {
+            hitPoint = (ray.origin + ray.direction * 10);
+        }
+        Debug.DrawLine(ray.origin, hit.point, Color.red);
+        hitPoint = hit.point;
     }
 }
