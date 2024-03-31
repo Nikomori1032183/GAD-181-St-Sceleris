@@ -28,17 +28,12 @@ public class MouseTester : MonoBehaviour
     }
     void CastToPoint()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = (Camera.main.ScreenPointToRay(Input.mousePosition));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, maxDist))
         {
             hitPoint = hit.point;
         }
-        else
-        {
-            hitPoint = (ray.origin + ray.direction * 10);
-        }
         Debug.DrawLine(ray.origin, hit.point, Color.red);
-        hitPoint = hit.point;
     }
 }
