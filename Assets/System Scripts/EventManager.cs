@@ -97,6 +97,7 @@ public class EventManager : MonoBehaviour
     public event Action<SelectableClasses> onClassSelect;
     public void ClassSelect(SelectableClasses selectedClass)
     {
+        Debug.Log("Class Select");
         if (onClassSelect != null)
         {
             onClassSelect(selectedClass);
