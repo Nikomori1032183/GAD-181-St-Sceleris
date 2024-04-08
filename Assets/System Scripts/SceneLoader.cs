@@ -19,11 +19,6 @@ public class SceneLoader : MonoBehaviour
         EventManager.current.onMicrogameSelected += LoadMicrogameScene;
     }
 
-    void Update()
-    {
-
-    }
-
     // Load Scene
     private void LoadScene(string sceneName)
     {

@@ -77,7 +77,7 @@ public class MicrogameManager : MonoBehaviour
     {
         EventManager.current.onClassSelect += SelectClass;
         EventManager.current.onMicrogameStop += MicrogameFinished;
-        EventManager.current.onMicrogameSceneLoaded += LoadMicrogame;
+        EventManager.current.onMicrogameSceneLoaded += StartDelayedLoadMicrogame;
     }
 
     private void SelectClass(EventManager.SelectableClasses selectedClass)
@@ -140,6 +140,18 @@ public class MicrogameManager : MonoBehaviour
         currentMicrogameClass.Remove(currentMicrogameName);
 
         StartMicrogame();
+    }
+
+    IEnumerator DelayedLoadMicrogame()
+    {
+        yield return new WaitForSeconds(1);
+
+        LoadMicrogame();
+    }
+
+    void StartDelayedLoadMicrogame()
+    {
+        StartCoroutine(DelayedLoadMicrogame());
     }
 
     private void StartMicrogame()
