@@ -46,6 +46,7 @@ namespace Bars
             return hit;
             //Debug.DrawLine(ray.origin, hit.point, Color.red);
         }
+
         private void ClickOnBar()
         {
             //Play Particle Effect
@@ -56,11 +57,15 @@ namespace Bars
                 if (IndexPos(bar) != -1)
                 {
                     //Play Sounds
+
+                    EventManager.current.CutBar();
+
                     Destroy(barPatch[IndexPos(bar)]);
                     barCut[IndexPos(bar)] = true;
                 }
             }
         }
+
         private int IndexPos(GameObject bar)
         {
             int x = System.Array.IndexOf(barPatch, bar);
