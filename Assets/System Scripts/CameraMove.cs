@@ -62,7 +62,6 @@ public class CameraMove : MonoBehaviour
 
     void ClassCameraPosition(EventManager.SelectableClasses className)
     {
-        print("misery");
         running = true;
         cameraMove = className; 
     }

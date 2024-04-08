@@ -79,5 +79,7 @@ public class SceneLoader : MonoBehaviour
     private void LoadMicrogameScene(string microgameSceneName)
     {
         LoadScene(microgameSceneName);
+
+        EventManager.current.MicrogameSceneLoaded();
     }
 }

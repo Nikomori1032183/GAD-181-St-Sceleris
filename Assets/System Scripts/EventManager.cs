@@ -22,6 +22,16 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    // Scene Loader Events
+    public event Action onMicrogameSceneLoaded;
+    public void MicrogameSceneLoaded()
+    {
+        if (onMicrogameSceneLoaded != null)
+        {
+            onMicrogameSceneLoaded();
+        }
+    }
+
     // Microgame Events
     public event Action onDisplayObjective;
     public void DisplayObjective()
