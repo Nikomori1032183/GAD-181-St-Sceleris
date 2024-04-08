@@ -6,7 +6,7 @@ using VInspector;
 public abstract class Microgame : MonoBehaviour
 {
     protected bool result = false;
-    protected bool playing;
+
     [SerializeField] protected string objectiveName = "";
     [SerializeField] protected float objectiveTime = 1;
     [SerializeField] protected float playTime = 10;
@@ -49,18 +49,19 @@ public abstract class Microgame : MonoBehaviour
         // Play Microgame
         PlayMicrogame();
     }
-
    
     protected virtual void PlayMicrogame() // Game Begin
     {
         EventManager.current.MicrogamePlay(playTime);
-        playing = true;
+
+        InputManager.current.SetControlsActive(true);
     }
 
    
     protected virtual void StopMicrogame() // Game Stop
     {
         EventManager.current.MicrogameStop(result);
-        playing = false;
+
+        InputManager.current.SetControlsActive(false);
     }
 }

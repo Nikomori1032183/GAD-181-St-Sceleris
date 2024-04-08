@@ -87,7 +87,7 @@ public class MicrogameManager : MonoBehaviour
         Debug.Log(currentMicrogameName);
     }
 
-    private void PlayMicrogame()
+    private void LoadMicrogame()
     {
         // Select Microgame
         SelectRandomMicrogame();
@@ -108,7 +108,7 @@ public class MicrogameManager : MonoBehaviour
 
         if (currentMicrogameClass.Count > 0)
         {
-            PlayMicrogame();
+            LoadMicrogame();
         }
 
         else
@@ -152,6 +152,6 @@ public class MicrogameManager : MonoBehaviour
                 break;
         }
 
-        PlayMicrogame();
+        LoadMicrogame();
     }
 }

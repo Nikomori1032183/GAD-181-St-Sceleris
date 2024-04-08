@@ -9,7 +9,6 @@ public class ButtonMashStab : Microgame
     [SerializeField] int stabQuota;
     int timesStabbed = 0;
 
-    // Start is called before the first frame update
     override protected void Start()
     {
         base.Start();
@@ -26,16 +25,14 @@ public class ButtonMashStab : Microgame
     {
         base.StopMicrogame();
     }
+
     void Stab()
     {
-        if (playing)
+        if (!knife.GetReturning())
         {
-            if (!knife.GetReturning())
-            {
-                knife.SetStabbing(true);
-            }
+            knife.SetStabbing(true);
         }
-    }
+}
 
     void GuardStabbed()
     {

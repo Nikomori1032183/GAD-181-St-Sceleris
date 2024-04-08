@@ -50,6 +50,15 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public event Action<bool> onMicrogamePlayingToggle;
+    public void MicrogamePlayingToggle(bool playing)
+    {
+        if (onMicrogamePlayingToggle != null)
+        {
+            MicrogamePlayingToggle(playing);
+        }
+    }
+
     public event Action<bool> onMicrogameStop;
     public void MicrogameStop(bool result)
     {
@@ -114,11 +123,21 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    // buttonmashstab events
+    // Grab The Cash Events
+    public event Action onCashCollected;
+    public void CashCollected()
+
+    {
+        if (onCashCollected != null)
+        {
+            onCashCollected();
+        }
+    }
+    // Button Mash Stab Events
     public event Action onGuardStab;
     public void GuardStab()
     {
-        if(onGuardStab != null)
+        if (onGuardStab != null)
         {
             onGuardStab();
         }

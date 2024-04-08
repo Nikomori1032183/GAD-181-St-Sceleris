@@ -6,7 +6,9 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public static InputManager current;
-    
+
+    private bool controlsActive = true;
+
     private Vector3 mousePosition;
 
     private void Awake()
@@ -35,7 +37,6 @@ public class InputManager : MonoBehaviour
         }
 
         // Mouse Position
-        //                                                                  X                                   Y                               Z
         mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, (Input.mousePosition.y), Camera.main.transform.position.y));
     }
 
@@ -43,7 +44,7 @@ public class InputManager : MonoBehaviour
     public event Action onLeftClick;
     public void LeftClick()
     {
-        if (onLeftClick != null)
+        if (onLeftClick != null && controlsActive)
         {
             onLeftClick();
         }
@@ -52,7 +53,7 @@ public class InputManager : MonoBehaviour
     public event Action onLeftClickUp;
     public void LeftClickUp()
     {
-        if (onLeftClickUp != null)
+        if (onLeftClickUp != null && controlsActive)
         {
             onLeftClickUp();
         }
@@ -61,7 +62,7 @@ public class InputManager : MonoBehaviour
     public event Action onLeftClickDown;
     public void LeftClickDown()
     {
-        if (onLeftClickDown != null)
+        if (onLeftClickDown != null && controlsActive)
         {
             onLeftClickDown();
         }
@@ -70,5 +71,17 @@ public class InputManager : MonoBehaviour
     public Vector3 GetMousePosition()
     {
         return mousePosition;
+    }
+
+    public void SetControlsActive(bool state)
+    {
+        controlsActive = state;
+        
+        Debug.Log("Controls Active Set To: " + controlsActive);
+    }
+
+    public bool GetControlsActive()
+    {
+        return controlsActive;
     }
 }
