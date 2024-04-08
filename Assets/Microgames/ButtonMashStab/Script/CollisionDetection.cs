@@ -14,4 +14,9 @@ public class CollisionDetection : MonoBehaviour
             EventManager.current.GuardStab();
         }
     }
+
+    void GuardDamage()
+    {
+
+    }
 }
