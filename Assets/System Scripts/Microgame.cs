@@ -50,12 +50,14 @@ public abstract class Microgame : MonoBehaviour
         PlayMicrogame();
     }
 
+   
     protected virtual void PlayMicrogame() // Game Begin
     {
         EventManager.current.MicrogamePlay(playTime);
         playing = true;
     }
 
+   
     protected virtual void StopMicrogame() // Game Stop
     {
         EventManager.current.MicrogameStop(result);
