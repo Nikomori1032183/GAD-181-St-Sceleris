@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VInspector;
+
 
 public class ButtonMashStab : Microgame
 {
     [SerializeField] KnifeMovement knife;
-    [SerializeField] int stabQuota;
+    [SerializeField] int stabQuota = 10;
     int timesStabbed = 0;
 
     // Start is called before the first frame update
