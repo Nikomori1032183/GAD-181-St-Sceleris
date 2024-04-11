@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 199688573}
   - component: {fileID: 199688572}
   - component: {fileID: 199688571}
+  - component: {fileID: 199688575}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -228,6 +229,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &199688575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199688570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484c82b2ce5e4f943bf36db0015b562d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &472001547
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +440,6 @@ GameObject:
   - component: {fileID: 1300940026}
   - component: {fileID: 1300940025}
   - component: {fileID: 1300940024}
-  - component: {fileID: 1300940023}
   - component: {fileID: 1300940028}
   m_Layer: 0
   m_Name: Sphere
@@ -435,21 +448,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1300940023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300940022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 1300940022}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!135 &1300940024
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -545,11 +543,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1300940022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41dced0b227400e4585a0a3182657c8d, type: 3}
+  m_Script: {fileID: 11500000, guid: 484c82b2ce5e4f943bf36db0015b562d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myMaterial: {fileID: 2100000, guid: 819e406d407131b4d932f560d92dd897, type: 2}
-  myColor: {r: 0.18867922, g: 0.05072979, b: 0.05072979, a: 0}
+  newColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1301839201
 GameObject:
   m_ObjectHideFlags: 0
