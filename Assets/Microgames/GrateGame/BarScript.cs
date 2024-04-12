@@ -13,7 +13,9 @@ namespace Bars
         private bool[] barCut = new bool[2];
         //One gameObject per bool
         [SerializeField] private GameObject[] barPatch = new GameObject[2];
-        [SerializeField] private MouseTester mouseTester;
+        [SerializeField] private Animator mAnimator;
+        [SerializeField] private Animation barAnimation;
+        private bool animationPlayed = false;
 
         private void Start()
         //Set the bools to false to start with
@@ -24,14 +26,20 @@ namespace Bars
             {
                 barCut[i] = false;
             }
+            if (mAnimator == null)
+            {
+                mAnimator = GetComponent<Animator>();
+            }
         }
         private void Update()
         {
-            if (!barCut.Contains(false))
+            if (!barCut.Contains(false) && !animationPlayed)
             {
-                //PlayAnimation
+                
                 Debug.Log("Bar Cut!");
-                Destroy(this.gameObject);
+                mAnimator.SetTrigger("BarBroken");
+                animationPlayed = true;
+                
             }
         }
 
