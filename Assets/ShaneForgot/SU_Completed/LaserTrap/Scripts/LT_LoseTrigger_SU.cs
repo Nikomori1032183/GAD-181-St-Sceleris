@@ -17,6 +17,7 @@ public class LT_LoseTrigger_SU : MonoBehaviour
     {
         mainScript.win = false;
         Debug.Log("Game Over! You sounded the alarms");
+        mainScript.audioSource.Play();
         mainScript.LTGameEnd();
     }
 }

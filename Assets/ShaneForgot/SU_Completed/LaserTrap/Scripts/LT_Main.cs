@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LT_Main : Microgame
 {
+    public AudioSource audioSource;
+
     public GameObject gameStart;
     public GameObject gameEnd;
     LT_Laser laserScript;
@@ -13,6 +15,7 @@ public class LT_Main : Microgame
     protected override void Start()
     {
         base.Start();
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
         laserScript = FindAnyObjectByType<LT_Laser>();
         laserScript.groupLasers();
     }

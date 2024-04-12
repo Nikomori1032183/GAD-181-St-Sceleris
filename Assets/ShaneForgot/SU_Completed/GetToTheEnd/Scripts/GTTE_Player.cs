@@ -11,6 +11,8 @@ public class GTTE_Player : MonoBehaviour
 
     Rigidbody rb;
     CharacterController charCon;
+    public AudioSource playerAudioSource;
+
 
     public float thrust = 5f;
     private Vector3 jumpValue = new Vector3(0, 4f, 0);
@@ -20,13 +22,14 @@ public class GTTE_Player : MonoBehaviour
     float gravity;
     float jumpVelocity;
 
-    bool isGrounded;
+    public bool isGrounded;
 
     //...................................................//
 
     public float jumpSpeed;
-    private float ySpeed;
-    public float speed;
+    float ySpeed;
+    float speed;
+    bool dblJump = true;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,7 @@ public class GTTE_Player : MonoBehaviour
         //InputManager.current.onLeftClick += doJump();
         if (rb == null) rb = GetComponent<Rigidbody>();
         if (charCon == null) charCon = GetComponent<CharacterController>();
+        if (playerAudioSource == null) playerAudioSource = GetComponent<AudioSource>();
         gravity = 2f * jumpHeight / (timeToReachApex * timeToReachApex);
         jumpVelocity = gravity * timeToReachApex;
 
@@ -43,38 +47,49 @@ public class GTTE_Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float hMove = Input.GetAxis("Horizontal");
-        float vMove = Input.GetAxis("Vertical");
-
-        Vector3 moveDirection = new Vector3(hMove, 0, vMove);
+        Vector3 moveDirection = new Vector3(0, 0, 0);
         moveDirection.Normalize();
         float magnitude = moveDirection.magnitude;
         magnitude = Mathf.Clamp01(magnitude);
-        charCon.SimpleMove(moveDirection * magnitude * speed);
+        charCon.SimpleMove(moveDirection * magnitude * speed); //REQUIRED FOR NORMAL JUMPS
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("jump");
-            ySpeed = -0.5f;
-            isGrounded = false;
-        }
 
         Vector3 vel = moveDirection * magnitude;
         vel.y = ySpeed;
         charCon.Move(vel * Time.deltaTime);
 
-        if (charCon.isGrounded && GTTE_Main.GTTEPlaying)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             ySpeed = -0.5f;
             isGrounded = true;
-            if (Input.GetKeyDown(KeyCode.Space))
+            dblJump = true;
+        }
+
+        if (charCon.isGrounded)
+        {
+            ySpeed = -0.5f;
+            isGrounded = true;
+            dblJump = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGrounded)
             {
                 ySpeed = jumpSpeed;
                 isGrounded = false;
             }
+            else if(!isGrounded && dblJump)
+            {
+                Debug.Log("double!");
+                ySpeed += jumpSpeed;
+                dblJump = false;
+            }
+            
         }
 
+        
         /*
          * if (Input.GetKeyDown(KeyCode.Mouse0) && isGrounded && GTTE_Main.GTTEPlaying)
         {

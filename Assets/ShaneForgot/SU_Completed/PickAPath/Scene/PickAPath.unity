@@ -992,6 +992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56055c81f835704e960f1d7b49cd072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveName: 
+  objectiveTime: 1
+  playTime: 10
   doorOptions:
   - {fileID: 624037264}
   - {fileID: 2116052897}
@@ -1031,11 +1034,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorAudioList:
   - {fileID: 8300000, guid: d249d34d22498be40a96d27ac8fe755e, type: 3}
-  - {fileID: 8300000, guid: d249d34d22498be40a96d27ac8fe755e, type: 3}
-  - {fileID: 8300000, guid: d249d34d22498be40a96d27ac8fe755e, type: 3}
-  - {fileID: 8300000, guid: d249d34d22498be40a96d27ac8fe755e, type: 3}
-  - {fileID: 8300000, guid: d249d34d22498be40a96d27ac8fe755e, type: 3}
-  - {fileID: 8300000, guid: d249d34d22498be40a96d27ac8fe755e, type: 3}
+  - {fileID: 8300000, guid: 8c3d3b89c25e45f478b25398e2fee708, type: 3}
+  - {fileID: 8300000, guid: 5e183e0625f771141b1b36b28205efe7, type: 3}
+  - {fileID: 8300000, guid: 222001e0adbbb3645956a143cabc86dd, type: 3}
+  - {fileID: 8300000, guid: cf61522e1efd757419da8446fc7b8117, type: 3}
 --- !u!1 &595884071
 GameObject:
   m_ObjectHideFlags: 0
