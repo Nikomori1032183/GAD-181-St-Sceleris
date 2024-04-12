@@ -31,7 +31,7 @@ MonoBehaviour:
         - GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-705507993-0
         values:
         - iColor: 0
-          icon: EventSystem Icon
+          icon: Camera Icon
         - iColor: 0
           icon: Light Icon
       goDatasByInstanceId:
@@ -46,7 +46,7 @@ MonoBehaviour:
         - iColor: 0
           icon: Light Icon
         - iColor: 0
-          icon: EventSystem Icon
+          icon: Camera Icon
         - iColor: 0
           icon: Light Icon
         - iColor: 0
@@ -69,22 +69,8 @@ MonoBehaviour:
         - iColor: 0
           icon: Light Icon
       goDatasByInstanceId:
-        keys: d0590000ca590000de590000d859000050f5ffffce7f0000c87f0000
-        values:
-        - iColor: 0
-          icon: Camera Icon
-        - iColor: 0
-          icon: Light Icon
-        - iColor: 0
-          icon: EventSystem Icon
-        - iColor: 0
-          icon: StandaloneInputModule Icon
-        - iColor: 0
-          icon: Canvas Icon
-        - iColor: 0
-          icon: Camera Icon
-        - iColor: 0
-          icon: Light Icon
+        keys: 
+        values: []
     - goDatasByGlobalId:
         keys: []
         values: []
@@ -112,12 +98,6 @@ MonoBehaviour:
       goDatasByInstanceId:
         keys: d8590000de59000050f5ffffe67f0000ec7f0000e07f00007a24ffff4c21ffff085a0000145a0000025a0000fc5900000e5a0000
         values:
-        - iColor: 0
-          icon: StandaloneInputModule Icon
-        - iColor: 0
-          icon: EventSystem Icon
-        - iColor: 0
-          icon: Canvas Icon
         - iColor: 0
           icon: StandaloneInputModule Icon
         - iColor: 0
