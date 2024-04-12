@@ -152,4 +152,14 @@ public class EventManager : MonoBehaviour
             onGuardStab();
         }
     }
+
+    // Cut the Grate Events
+    public event Action onCutBar;
+    public void CutBar()
+    {
+        if (onCutBar != null)
+        {
+            onCutBar();
+        }
+    }
 }
