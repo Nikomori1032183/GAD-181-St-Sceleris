@@ -28,20 +28,24 @@ public class GTTE_Player : MonoBehaviour
         if (rb == null) rb = GetComponent<Rigidbody>();
         gravity = 2f * jumpHeight / (timeToReachApex * timeToReachApex);
         jumpVelocity = gravity * timeToReachApex;
+
+        InputManager.current.onLeftClick += Jump;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isGrounded && GTTE_Main.GTTEPlaying)
+        /*
+         * if (Input.GetKeyDown(KeyCode.Mouse0) && isGrounded && GTTE_Main.GTTEPlaying)
         {
             Jump();
         }
 
-        /*if (rb.velocity.y <= 0)
+        if (rb.velocity.y <= 0)
         {
             rb.AddForce(transform.up * -thrust, ForceMode.Impulse);
-        }*/
+        }
+        */
     }
 
     private void OnCollisionStay()
@@ -51,9 +55,12 @@ public class GTTE_Player : MonoBehaviour
 
     private void Jump()
     {
-        isGrounded = false;
-        Debug.Log("Jump");
-        rb.AddForce(jumpValue * thrust, ForceMode.Impulse);
-        //this.transform.position = new Vector3(transform.position.x, jumpVelocity, transform.position.z);
+        if (isGrounded && GTTE_Main.GTTEPlaying)
+        {
+            isGrounded = false;
+            Debug.Log("Jump");
+            rb.AddForce(jumpValue * thrust, ForceMode.Impulse);
+            //this.transform.position = new Vector3(transform.position.x, jumpVelocity, transform.position.z);
+        }
     }
 }

@@ -53,11 +53,6 @@ public class GTTE_Main : MonoBehaviour
                 SpawnSpotLights();
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            SpawnSpotLights();
-        }
     }
 
     public void StartGGTE()
