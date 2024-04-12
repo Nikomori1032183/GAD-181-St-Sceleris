@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VInspector;
 
 public abstract class Microgame : MonoBehaviour
 {
     protected bool result = false;
-    protected string objectiveName;
-    protected float objectiveTime, playTime;
+
+    [SerializeField] protected string objectiveName = "";
+    [SerializeField] protected float objectiveTime = 1;
+    [SerializeField] protected float playTime = 10;
 
     // With all virtual methods make sure when overriding to call base.MethodName(); at the start
 
     protected virtual void Start()
     {
+        EventManager.current.onTimerStop += PlayMicrogame;
         EventManager.current.onTimerStop += StopMicrogame;
     }
 
@@ -34,7 +38,7 @@ public abstract class Microgame : MonoBehaviour
     protected IEnumerator DisplayObjective()
     {
         // Tell UI Manager to display Objective Text
-        EventManager.current.DisplayObjective(objectiveName);
+        EventManager.current.DisplayObjective();
 
         // Wait Time
         yield return new WaitForSeconds(objectiveTime);
@@ -45,14 +49,19 @@ public abstract class Microgame : MonoBehaviour
         // Play Microgame
         PlayMicrogame();
     }
-
+   
     protected virtual void PlayMicrogame() // Game Begin
     {
         EventManager.current.MicrogamePlay(playTime);
+
+        InputManager.current.SetControlsActive(true);
     }
 
+   
     protected virtual void StopMicrogame() // Game Stop
     {
         EventManager.current.MicrogameStop(result);
+
+        InputManager.current.SetControlsActive(false);
     }
 }
