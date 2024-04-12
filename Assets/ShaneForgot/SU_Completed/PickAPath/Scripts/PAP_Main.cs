@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PAP_Main : MonoBehaviour
+public class PAP_Main : Microgame
 {
     int PAP_Counter = 0;
     public List<PAP_Door> doorOptions;
@@ -16,8 +16,9 @@ public class PAP_Main : MonoBehaviour
     public GameObject gameStart;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         if (doorOptions == null)
         {
             doorOptions.Add(FindObjectOfType<PAP_Door>());
@@ -95,6 +96,8 @@ public class PAP_Main : MonoBehaviour
         PAPInPlay = false;
         gameOver.SetActive(true);
         gameOver.GetComponentInChildren<TextMeshProUGUI>().text = "Passed Class";
+        result = true;
+        StopMicrogame();
     }
     public void failClass()
     {
@@ -102,5 +105,18 @@ public class PAP_Main : MonoBehaviour
         currentDoor.Deselect();
         gameOver.SetActive(true);
         gameOver.GetComponentInChildren<TextMeshProUGUI>().text = "Failed Class";
+        result = false;
+        StopMicrogame();
+    }
+
+    protected override void PlayMicrogame()
+    {
+        base.PlayMicrogame();
+        startClass();
+    }
+
+    protected override void StopMicrogame()
+    {
+        base.StopMicrogame();
     }
 }

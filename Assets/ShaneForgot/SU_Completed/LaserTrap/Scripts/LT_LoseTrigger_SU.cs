@@ -1,23 +1,22 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LT_WinTrigger_SU : MonoBehaviour
+public class LT_LoseTrigger_SU : MonoBehaviour
 {
+    public GameObject laser;
     LT_Main mainScript;
 
     void Start()
     {
+        laser = this.gameObject;
         mainScript = FindAnyObjectByType<LT_Main>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            mainScript.LTGameEnd();
-            Debug.Log("You Win!");
-        }
+        mainScript.win = false;
+        Debug.Log("Game Over! You sounded the alarms");
+        mainScript.LTGameEnd();
     }
 }

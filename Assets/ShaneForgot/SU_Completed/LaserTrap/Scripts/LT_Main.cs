@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LT_Main : MonoBehaviour
+public class LT_Main : Microgame
 {
     public GameObject gameStart;
     public GameObject gameEnd;
     LT_Laser laserScript;
+    public bool win;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         laserScript = FindAnyObjectByType<LT_Laser>();
         laserScript.groupLasers();
     }
@@ -35,5 +37,18 @@ public class LT_Main : MonoBehaviour
         LT_Player_SU.audioSource.Stop();
         laserScript.laserOn(false);
         gameEnd.SetActive(true);
+        result = win;
+        StopMicrogame();
+    }
+
+    protected override void PlayMicrogame()
+    {
+        base.PlayMicrogame();
+        LTGamePlay();
+    }
+
+    protected override void StopMicrogame()
+    {
+        base.StopMicrogame();
     }
 }

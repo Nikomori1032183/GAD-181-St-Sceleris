@@ -25,6 +25,8 @@ public class GTTE_Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //base.Start();
+        //
         if (slider == null) slider = GetComponentInChildren<Slider>();
         StartInfo.SetActive(true);
         spawnPos.Add(top); spawnPos.Add(mid); spawnPos.Add(bottom);
@@ -55,7 +57,7 @@ public class GTTE_Main : MonoBehaviour
         }
     }
 
-    public void StartGGTE()
+    public void StartGTTE()
     {
         Debug.Log("Class starting");
         StartInfo.SetActive(false);
@@ -77,11 +79,27 @@ public class GTTE_Main : MonoBehaviour
         {
             Debug.Log("Passed Class");
             GradeMenu.GetComponentInChildren<GameObject>().GetComponentInChildren<GameObject>(name == "pass").gameObject.SetActive(true);
+            //result = true;
         }
         else
         {
             Debug.Log("Failed Class");
             GradeMenu.GetComponentInChildren<GameObject>().GetComponentInChildren<GameObject>(name == "fail").gameObject.SetActive(true);
+            //result = false;
         }
+        //StopMicrogame();
     }
+    /*
+    protected override void PlayMicrogame()
+    {
+        base.PlayMicrogame();
+        StartGTTE();
+    }
+
+    protected override void StopMicrogame()
+    {
+        base.StopMicrogame();
+    }
+    */
 }
+
