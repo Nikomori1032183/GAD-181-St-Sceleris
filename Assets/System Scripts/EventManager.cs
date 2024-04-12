@@ -22,6 +22,16 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    // Scene Loader Events
+    public event Action onMicrogameSceneLoaded;
+    public void MicrogameSceneLoaded()
+    {
+        if (onMicrogameSceneLoaded != null)
+        {
+            onMicrogameSceneLoaded();
+        }
+    }
+
     // Microgame Events
     public event Action onDisplayObjective;
     public void DisplayObjective()
@@ -47,6 +57,15 @@ public class EventManager : MonoBehaviour
         if (onMicrogamePlay != null)
         {
             onMicrogamePlay(playTime);
+        }
+    }
+
+    public event Action<bool> onMicrogamePlayingToggle;
+    public void MicrogamePlayingToggle(bool playing)
+    {
+        if (onMicrogamePlayingToggle != null)
+        {
+            MicrogamePlayingToggle(playing);
         }
     }
 
@@ -97,6 +116,7 @@ public class EventManager : MonoBehaviour
     public event Action<SelectableClasses> onClassSelect;
     public void ClassSelect(SelectableClasses selectedClass)
     {
+        Debug.Log("Class Select");
         if (onClassSelect != null)
         {
             onClassSelect(selectedClass);
@@ -110,6 +130,26 @@ public class EventManager : MonoBehaviour
         if (onTimerStop != null)
         {
             onTimerStop();
+        }
+    }
+
+    // Grab The Cash Events
+    public event Action onCashCollected;
+    public void CashCollected()
+
+    {
+        if (onCashCollected != null)
+        {
+            onCashCollected();
+        }
+    }
+    // Button Mash Stab Events
+    public event Action onGuardStab;
+    public void GuardStab()
+    {
+        if (onGuardStab != null)
+        {
+            onGuardStab();
         }
     }
 }
