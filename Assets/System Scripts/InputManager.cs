@@ -18,22 +18,23 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
+
+        // Left Click Down
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            LeftClickDown();
+        }
+
         // Left Click
-        if (Input.GetMouseButton(0))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             LeftClick();
         }
 
-        // Left Click Down
-        if (Input.GetMouseButtonDown(0))
+        // Left Click Up
+        if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             LeftClickUp();
-        }
-
-        // Left Click Up
-        if (Input.GetMouseButtonUp(0))
-        {
-            LeftClickDown();
         }
 
         // Mouse Position
