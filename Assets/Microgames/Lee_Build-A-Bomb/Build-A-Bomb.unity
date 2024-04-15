@@ -203,7 +203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff65057156054f74784a9d6fbcc04703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mineObject: {fileID: 0}
+  mineObject: {fileID: 556456034642235109, guid: a7f3fd576ebe80e4f8744c58be3405d8, type: 3}
+  inPos: 0
 --- !u!65 &152259031
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -223,7 +224,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08, y: 0.17, z: 0.08}
+  m_Size: {x: 0.08, y: 0.8, z: 0.08}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &156662044
 GameObject:
@@ -250,11 +251,63 @@ Transform:
   m_GameObject: {fileID: 156662044}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.36, y: 0.516, z: 0.314}
+  m_LocalPosition: {x: -0.36, y: 0.6, z: 0.314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1285436662}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &306219670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 306219672}
+  - component: {fileID: 306219671}
+  m_Layer: 0
+  m_Name: BuildBomb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &306219671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306219670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c73dfd588c822bc43ab8d72e01361a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveName: Build The Bomb
+  objectiveTime: 1
+  playTime: 10
+  positions:
+  - {fileID: 341962789}
+  - {fileID: 152259030}
+  - {fileID: 1752934684}
+  - {fileID: 551924604}
+--- !u!4 &306219672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306219670}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.1155307, y: -2.2721672, z: -3.1407244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &341962787
 GameObject:
@@ -282,8 +335,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341962787}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0284, y: 0.549, z: -0.171}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0.0284, y: 0.6263, z: -0.171}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -301,7 +354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff65057156054f74784a9d6fbcc04703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mineObject: {fileID: 0}
+  mineObject: {fileID: 4415369041023885027, guid: 68170e618e84dcb4cac7429569974b9c, type: 3}
+  inPos: 0
 --- !u!65 &341962790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -317,11 +371,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08, y: 0.17, z: 0.08}
+  m_Size: {x: 0.08, y: 0.08, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &471903046
 GameObject:
@@ -348,7 +402,7 @@ Transform:
   m_GameObject: {fileID: 471903046}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.183, y: 0.516, z: -0.484}
+  m_LocalPosition: {x: -0.183, y: 0.6, z: -0.484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -380,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551924602}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
   m_LocalPosition: {x: 0.008, y: 0.53, z: -0.033}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -399,7 +453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff65057156054f74784a9d6fbcc04703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mineObject: {fileID: 0}
+  mineObject: {fileID: 2591775028949596585, guid: 02d6f673014a9af4d97b64d06eda7f57, type: 3}
+  inPos: 0
 --- !u!65 &551924605
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -415,11 +470,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08, y: 0.17, z: 0.08}
+  m_Size: {x: 0.08, y: 0.08, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &561883303
 GameObject:
@@ -617,7 +672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1013144756
 AudioListener:
   m_ObjectHideFlags: 0
@@ -752,7 +807,7 @@ Transform:
   m_GameObject: {fileID: 1433054420}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.39835837, z: -0, w: 0.9172299}
-  m_LocalPosition: {x: -0.342, y: 0.516, z: -0.149}
+  m_LocalPosition: {x: -0.342, y: 0.6, z: -0.149}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -877,7 +932,7 @@ Transform:
   m_GameObject: {fileID: 1752044304}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.52635735, z: -0, w: 0.8502635}
-  m_LocalPosition: {x: 0.04, y: 0.516, z: 0.455}
+  m_LocalPosition: {x: 0.04, y: 0.6, z: 0.455}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -909,8 +964,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752934682}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.025, y: 0.557, z: -0.036}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
+  m_LocalPosition: {x: 0.025, y: 0.6057, z: -0.036}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -928,7 +983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff65057156054f74784a9d6fbcc04703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mineObject: {fileID: 0}
+  mineObject: {fileID: 63536211412296581, guid: 2f1ae324003ef0c43815f30e697eb0c3, type: 3}
+  inPos: 0
 --- !u!65 &1752934685
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -944,11 +1000,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08, y: 0.17, z: 0.08}
+  m_Size: {x: 0.08, y: 0.08, z: 0.8}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2039242083
 PrefabInstance:
@@ -1057,6 +1113,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 306219672}
   - {fileID: 1013144758}
   - {fileID: 561883307}
   - {fileID: 2039242083}

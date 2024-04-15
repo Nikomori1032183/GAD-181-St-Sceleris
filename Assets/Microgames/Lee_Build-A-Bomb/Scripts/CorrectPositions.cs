@@ -12,6 +12,8 @@ public class CorrectPositions : MonoBehaviour
     //Collider myCollider;
     Rigidbody objectsRB;
 
+    public bool inPos = false;
+
     private void Start()
     {
         //myCollider = GetComponent<Collider>();
@@ -29,6 +31,10 @@ public class CorrectPositions : MonoBehaviour
             objectsRB.constraints = RigidbodyConstraints.FreezeAll;
             thineCollision.gameObject.transform.position = this.transform.position;
             thineCollision.gameObject.transform.rotation = this.transform.rotation;
+            Destroy(thineCollision.GetComponent<Draggable>());
+
+            inPos = true;
+            EventManager.current.PieceCorrect();
         }
     }
 }

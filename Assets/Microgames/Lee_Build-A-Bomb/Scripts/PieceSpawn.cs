@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PieceSpawn : MonoBehaviour
 {
     [SerializeField] List<GameObject> objectParts, spawnPoints;
+    
 
     private void Start()
     {
@@ -17,6 +19,10 @@ public class PieceSpawn : MonoBehaviour
         for(int i = 0; i < objectParts.Count; i++)
         {
             GameObject currentPart = Instantiate(objectParts[i], spawnPoints[i].transform);
+
+            CorrectPositions corPos = currentPart.GetComponent<CorrectPositions>();
         }
     }
+
+    
 }
