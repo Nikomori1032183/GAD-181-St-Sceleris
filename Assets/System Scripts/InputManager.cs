@@ -6,7 +6,9 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public static InputManager current;
-    
+
+    private bool controlsActive = true;
+
     private Vector3 mousePosition;
 
     private void Awake()
@@ -16,33 +18,34 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-        // Left Click
-        if (Input.GetMouseButton(0))
-        {
-            LeftClick();
-        }
 
         // Left Click Down
-        if (Input.GetMouseButtonDown(0))
-        {
-            LeftClickUp();
-        }
-
-        // Left Click Up
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             LeftClickDown();
         }
 
+        // Left Click
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            LeftClick();
+        }
+
+        // Left Click Up
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            LeftClickUp();
+        }
+
         // Mouse Position
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, (Input.mousePosition.y), Camera.main.transform.position.y));
     }
 
     // Input Events
     public event Action onLeftClick;
     public void LeftClick()
     {
-        if (onLeftClick != null)
+        if (onLeftClick != null && controlsActive)
         {
             onLeftClick();
         }
@@ -51,7 +54,7 @@ public class InputManager : MonoBehaviour
     public event Action onLeftClickUp;
     public void LeftClickUp()
     {
-        if (onLeftClickUp != null)
+        if (onLeftClickUp != null && controlsActive)
         {
             onLeftClickUp();
         }
@@ -60,7 +63,7 @@ public class InputManager : MonoBehaviour
     public event Action onLeftClickDown;
     public void LeftClickDown()
     {
-        if (onLeftClickDown != null)
+        if (onLeftClickDown != null && controlsActive)
         {
             onLeftClickDown();
         }
@@ -69,5 +72,17 @@ public class InputManager : MonoBehaviour
     public Vector3 GetMousePosition()
     {
         return mousePosition;
+    }
+
+    public void SetControlsActive(bool state)
+    {
+        controlsActive = state;
+        
+        Debug.Log("Controls Active Set To: " + controlsActive);
+    }
+
+    public bool GetControlsActive()
+    {
+        return controlsActive;
     }
 }
