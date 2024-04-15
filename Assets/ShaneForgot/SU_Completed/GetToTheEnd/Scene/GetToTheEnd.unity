@@ -2241,6 +2241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79eeae84f9c4dc0488ba8c5139c3add3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveName: Get To The End
+  objectiveTime: 5
+  playTime: 15
   spotlight: {fileID: 7248184052187113954, guid: 82caf3f75fb7bbb4d91b2dfff0a67b3f, type: 3}
   StartInfo: {fileID: 2061124009}
   GradeMenu: {fileID: 1072933019}

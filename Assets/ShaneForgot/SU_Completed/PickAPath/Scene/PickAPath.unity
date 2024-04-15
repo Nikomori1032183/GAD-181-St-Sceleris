@@ -992,9 +992,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56055c81f835704e960f1d7b49cd072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectiveName: 
-  objectiveTime: 1
-  playTime: 10
+  objectiveName: Pick A Path
+  objectiveTime: 5
+  playTime: 15
   doorOptions:
   - {fileID: 624037264}
   - {fileID: 2116052897}
