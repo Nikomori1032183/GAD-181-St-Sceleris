@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VInspector;
 
 public class SparksBehaviour : MonoBehaviour
 {
@@ -18,20 +19,18 @@ public class SparksBehaviour : MonoBehaviour
     void Update()
     {
         mousePosition = InputManager.current.GetMousePosition();
+        //Debug.Log(mousePosition);
         emptyForSparks.transform.position = mousePosition;
+        //Debug.Log(emptyForSparks.transform.position);
     }
+    [Button]
     private void StartParticles()
     {
-        if (sparks.isEmitting)
-        {
-            sparks.Play();
-        }
+        sparks.Play();
     }
+    [Button]
     private void StopParticles()
     {
-        if (!sparks.isEmitting)
-        {
-            sparks.Stop();
-        }
+       sparks.Stop();
     }
 }
