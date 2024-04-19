@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BarPatch
   - Grate
+  - bombdefuse_bomb
   layers:
   - Default
   - TransparentFX
