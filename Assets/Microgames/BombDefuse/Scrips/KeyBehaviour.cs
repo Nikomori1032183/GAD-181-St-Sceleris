@@ -11,6 +11,7 @@ public class KeyBehaviour : MonoBehaviour
     [SerializeField] bool isnumber;
     private BombBehaviour bombScript;
     private TextMeshPro keyCodeDisplay;
+    [SerializeField] private AudioSource keySound;
     private Animator animator;
 
     private void Start()
@@ -40,15 +41,19 @@ public class KeyBehaviour : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (!GameObject.FindWithTag("bombdefuse_bomb").GetComponent<BombBehaviour>().SpeaksToTheKeys())
         {
-            SendButton();
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                SendButton();
+            }
         }
     }
     [Button]
     void SendButton()
     {
         animator.SetTrigger("isPressed");
+        keySound.Play();
         bombScript.RecieveInput(keyCode);
     }
 }

@@ -11,6 +11,9 @@ public class BombBehaviour : Microgame
     List<int> codeInput = new List<int>();
     private int iterator = 0;
     private bool failure = false;
+    private AudioSource sounds;
+    [SerializeField] private AudioClip win;
+    [SerializeField] private AudioClip fail;
 
     private TextMeshPro bombdisplay;
     //KeyPos array positions defined in the eidot. Please dont make me do it again.
@@ -28,6 +31,7 @@ public class BombBehaviour : Microgame
         AssignKeyPositions();
         SetBombStatus();
         PlayMicrogame();
+        sounds = GetComponent<AudioSource>();
         
     }
     protected override void PlayMicrogame()
@@ -53,6 +57,8 @@ public class BombBehaviour : Microgame
             }
             else if (codeInput[codeInput.Count - 1] != codeSolution[iterator - 1])
             {
+                sounds.clip = fail;
+                sounds.PlayDelayed(0.5f);
                 bombStatus.text = "BOOM!";
                 bombStatus.color = Color.red;
                 failure = true;
@@ -61,6 +67,8 @@ public class BombBehaviour : Microgame
         }
         if (codeInput.Count == 5 && !failure)
         {
+            sounds.clip = win;
+            sounds.PlayDelayed(0.5f);
             bombStatus.text = "SAFE";
             bombStatus.color = Color.green;
             result = true;
@@ -134,6 +142,17 @@ public class BombBehaviour : Microgame
     {
         bombStatus.text = "ARMED";
         bombStatus.color = new Color(255, 120, 0, 255);
+    }
+    public bool SpeaksToTheKeys()
+    {
+        if (result || failure)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     #endregion
 
