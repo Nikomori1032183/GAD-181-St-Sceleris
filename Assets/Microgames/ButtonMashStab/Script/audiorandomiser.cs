@@ -5,30 +5,21 @@ using UnityEngine;
 public class audiorandomiser : MonoBehaviour
 {
     public AudioClip[] audioClips; // Array to hold audio clips for randomization
-    private AudioSource audioSource; // Reference to the AudioSource component
+    private AudioSource painSource; // Reference to the AudioSource component
 
     void Start()
     {
-        // Get the AudioSource component attached to the GameObject
-        audioSource = GetComponent<AudioSource>();
-
-        // Make sure there are audio clips assigned
-        if (audioClips.Length == 0)
-        {
-            Debug.LogError("No audio clips assigned to " + gameObject.name);
-            enabled = false; // Disable the script if no audio clips are assigned
-        }
+        painSource = GetComponent<AudioSource>();
     }
 
-    void OnTriggerEnter(Collider other)
+    void Update()
     {
         // Check if the object that collided has a Rigidbody component (is interactable)
-        if (other.GetComponent<BoxCollider>())
+        if (GetComponent<BoxCollider>())
         {
             // Play a random audio clip from the array
-            int randomIndex = Random.Range(0, audioClips.Length);
-            audioSource.clip = audioClips[randomIndex];
-            audioSource.Play();
+            painSource.clip = audioClips[Random.RandomRange(0, audioClips.Length)];
+            painSource.Play();
         }
     }
 }
