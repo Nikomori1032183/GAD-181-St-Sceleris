@@ -13,6 +13,7 @@ public abstract class Microgame : MonoBehaviour
 
     // With all virtual methods make sure when overriding to call base.MethodName(); at the start
 
+    // MAKE SURE TO OVERRIDE
     protected virtual void Start()
     {
         EventManager.current.onTimerStop += PlayMicrogame;
@@ -50,6 +51,7 @@ public abstract class Microgame : MonoBehaviour
         PlayMicrogame();
     }
    
+    // MAKE SURE TO OVERRIDE
     protected virtual void PlayMicrogame() // Game Begin
     {
         EventManager.current.MicrogamePlay(playTime);
@@ -57,7 +59,7 @@ public abstract class Microgame : MonoBehaviour
         InputManager.current.SetControlsActive(true);
     }
 
-   
+    // MAKE SURE TO OVERRIDE
     protected virtual void StopMicrogame() // Game Stop
     {
         EventManager.current.MicrogameStop(result);

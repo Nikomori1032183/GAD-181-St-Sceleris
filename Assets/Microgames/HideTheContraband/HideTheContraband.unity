@@ -208,9 +208,9 @@ MonoBehaviour:
   objectiveName: Frank
   objectiveTime: 10
   playTime: 10
-  contrabandPrefab1: {fileID: 0}
-  contrabandPrefab2: {fileID: 0}
-  contrabandPrefab3: {fileID: 0}
+  contrabandPrefab1: {fileID: 4271120895929638421, guid: 3ce40ab0ee8039f44861997f13b940b4, type: 3}
+  contrabandPrefab2: {fileID: 4271120895929638421, guid: 3ce40ab0ee8039f44861997f13b940b4, type: 3}
+  contrabandPrefab3: {fileID: 4271120895929638421, guid: 3ce40ab0ee8039f44861997f13b940b4, type: 3}
   spawnArea: {fileID: 724078173}
   contrabandAmount: 10
 --- !u!4 &796082793
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 1266625365}
   - component: {fileID: 1266625364}
   - component: {fileID: 1266625363}
-  - component: {fileID: 1266625362}
+  - component: {fileID: 1266625368}
   m_Layer: 0
   m_Name: Bag
   m_TagString: Untagged
@@ -249,18 +249,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1266625362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1266625361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a49bee094c375ff49a6999b3f4fe44f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1266625363
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -374,6 +362,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1266625368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266625361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8569194ad6c4de49b47ee30481f81ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

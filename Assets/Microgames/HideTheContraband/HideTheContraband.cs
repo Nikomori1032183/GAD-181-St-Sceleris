@@ -21,7 +21,7 @@ public class HideTheContraband : Microgame
 
         EventManager.current.onContrabandStashed += StashContraband;
 
-        SpawnContraband();
+        SpawnContrabands();
     }
 
     override protected void PlayMicrogame()
@@ -83,7 +83,7 @@ public class HideTheContraband : Microgame
     [Button]
     private void ClearContraband()
     {
-        Object[] objectsToClear = FindObjectsOfType<MoneyPile>();
+        Object[] objectsToClear = FindObjectsOfType<Contraband>();
 
         foreach (Object obj in objectsToClear)
         {

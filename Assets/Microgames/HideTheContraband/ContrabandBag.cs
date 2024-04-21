@@ -6,7 +6,7 @@ public class ContrabandBag : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<ContrabandBag>() != null)
+        if (other.GetComponent<Contraband>() != null)
         {
             //Debug.Log("Money Pile Entered Bag Trigger");
 
