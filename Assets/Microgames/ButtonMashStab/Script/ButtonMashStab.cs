@@ -48,6 +48,13 @@ public class ButtonMashStab : Microgame
         {
             result = true;
             Debug.Log("You Won!");
+
+            EndGame();
         }
+    }
+
+    void EndGame()
+    {
+        Debug.Log("Game Over!");
     }
 }

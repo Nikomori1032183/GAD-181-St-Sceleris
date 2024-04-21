@@ -10,15 +10,23 @@ public class audiorandomiser : MonoBehaviour
     void Start()
     {
         painSource = GetComponent<AudioSource>();
+
+        if (painSource == null)
+        {
+            Debug.Log("No audio");
+        }
     }
 
-    void Update()
+
+
+    void OnTriggerEnter(Collider other)
     {
         // Check if the object that collided has a Rigidbody component (is interactable)
-        if (GetComponent<BoxCollider>())
+        if (other.GetComponent<Rigidbody>())
         {
             // Play a random audio clip from the array
-            painSource.clip = audioClips[Random.RandomRange(0, audioClips.Length)];
+            int randomIndex = Random.Range(0, audioClips.Length);
+            painSource.clip = audioClips[randomIndex];
             painSource.Play();
         }
     }
