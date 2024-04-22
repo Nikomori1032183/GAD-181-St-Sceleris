@@ -78,6 +78,15 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public event Action<string> onUnloadMicrogame;
+    public void UnloadMicrogame(string microgameName)
+    {
+        if (onUnloadMicrogame != null)
+        {
+            onUnloadMicrogame(microgameName);
+        }
+    }
+
     // Main Menu Events
     public event Action onMainMenuPlay;
     public void MainMenuPlay()

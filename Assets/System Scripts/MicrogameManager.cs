@@ -35,11 +35,11 @@ public class MicrogameManager : MonoBehaviour
 
     private List<string> theftMicrogames = new List<string>
     {
-        "ButtonMashStab",
         "GrabTheCash",
-        "ButtonMashStab",
         "GrabTheCash",
-        "ButtonMashStab",
+        "GrabTheCash",
+        "GrabTheCash",
+        "GrabTheCash",
         "GrabTheCash"
     };
 
@@ -154,6 +154,13 @@ public class MicrogameManager : MonoBehaviour
         StartCoroutine(DelayedLoadMicrogame());
     }
 
+    private void UnloadMicrogame()
+    {
+        Debug.Log("UnloadMicrogame");
+
+        EventManager.current.UnloadMicrogame(currentMicrogameName); 
+    }
+
     private void StartMicrogame()
     {
         currentMicrogame.StartMicrogame();
@@ -161,10 +168,14 @@ public class MicrogameManager : MonoBehaviour
 
     private void MicrogameFinished(bool result)
     {
+        Debug.Log("Microgame Finished");
+
         if (result)
         {
             wins++;
         }
+
+        UnloadMicrogame();
 
         if (currentMicrogameClass.Count > 0)
         {

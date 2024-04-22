@@ -20,6 +20,7 @@ public abstract class Microgame : MonoBehaviour
         EventManager.current.onTimerStop += StopMicrogame;
     }
 
+    
     // I think that hese actually arent needed anymore after building out some of the systems but il leave it here just in case
     //private bool GetResult()
     //{
@@ -33,6 +34,7 @@ public abstract class Microgame : MonoBehaviour
 
     public void StartMicrogame()
     {
+        Debug.Log("StartMicrogame");
         StartCoroutine(DisplayObjective());
     }
 
@@ -54,6 +56,10 @@ public abstract class Microgame : MonoBehaviour
     // MAKE SURE TO OVERRIDE
     protected virtual void PlayMicrogame() // Game Begin
     {
+        Debug.Log("PlayMicrogame");
+
+        result = false;
+
         EventManager.current.MicrogamePlay(playTime);
 
         InputManager.current.SetControlsActive(true);
@@ -62,6 +68,8 @@ public abstract class Microgame : MonoBehaviour
     // MAKE SURE TO OVERRIDE
     protected virtual void StopMicrogame() // Game Stop
     {
+        Debug.Log("StopMicrogame");
+
         EventManager.current.MicrogameStop(result);
 
         InputManager.current.SetControlsActive(false);

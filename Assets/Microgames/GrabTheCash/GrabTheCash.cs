@@ -13,30 +13,30 @@ public class GrabTheCash : Microgame
     // Variables
     [SerializeField] private int moneyPiles;
 
-    int moneyCollected = 0;
+    public int moneyCollected;
 
     override protected void Start()
     {
         base.Start();
 
         EventManager.current.onCashCollected += CollectMoney;
-
-        SpawnMoney();
     }
 
     override protected void PlayMicrogame()
     {
         base.PlayMicrogame();
+
+        moneyCollected = 0;
+
+        Debug.Log("money collected: " + moneyCollected);
+        Debug.Log("money piles: " + moneyPiles);
+
+        SpawnMoney();
     }
 
     override protected void StopMicrogame()
     {
         base.StopMicrogame();
-    }
-
-    private void Update()
-    {
-        
     }
 
     private Vector3[] SpawnAreaPositions()

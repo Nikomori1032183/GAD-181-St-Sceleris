@@ -17,6 +17,7 @@ public class SceneLoader : MonoBehaviour
         EventManager.current.onLevelSelectMainMenu += UnloadLevelSelect;
 
         EventManager.current.onMicrogameSelected += LoadMicrogameScene;
+        EventManager.current.onUnloadMicrogame += UnloadMicrogameScene;
     }
 
     // Load Scene
@@ -25,6 +26,8 @@ public class SceneLoader : MonoBehaviour
         if (SceneManager.GetSceneByName(sceneName) != null)
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            
+            StartCoroutine(SetActiveSceneDelayed(sceneName));
         }
 
         else
@@ -36,7 +39,7 @@ public class SceneLoader : MonoBehaviour
     // Unload Scene
     private void UnloadScene(string sceneName)
     {
-        if (SceneManager.GetSceneByName(sceneName) != null)
+        if (SceneManager.GetSceneByName(sceneName).isLoaded)
         {
             SceneManager.UnloadSceneAsync(sceneName);
         }
@@ -45,6 +48,14 @@ public class SceneLoader : MonoBehaviour
         {
             Debug.Log("Scene Name Not Found");
         }
+    }
+    
+    // Set Active
+    IEnumerator SetActiveSceneDelayed(string sceneName)
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
     }
 
     // Menu Scenes
@@ -73,8 +84,18 @@ public class SceneLoader : MonoBehaviour
     // Microgame Scenes
     private void LoadMicrogameScene(string microgameSceneName)
     {
+        if (SceneManager.GetSceneByName("LevelSelect") != null)
+        {
+            UnloadScene("LevelSelect");
+        }
+
         LoadScene(microgameSceneName);
 
         EventManager.current.MicrogameSceneLoaded();
+    }
+
+    private void UnloadMicrogameScene(string microgameSceneName)
+    {
+        UnloadScene(microgameSceneName);
     }
 }
