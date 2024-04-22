@@ -6,11 +6,10 @@ using VInspector;
 
 public class ObjectiveTextAnimation : MonoBehaviour
 {
-    [SerializeField] private Sprite objectiveImage;
     [SerializeField] private Object objectivePrefab;
-    [SerializeField] private int moveSpeed = 40;
+    [SerializeField] private int moveSpeed = 500;
     [SerializeField] private int timeToWait = 2;
-    private Vector3 screenStart = new Vector3(Screen.width * 0.5f, (Screen.height - Screen.height - 100), 0);
+    private Vector3 screenStart = new Vector3(Screen.width * 0.5f, (Screen.height - Screen.height - 200), 0);
     private Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
     private bool boolA;
     private bool boolB;
@@ -21,7 +20,8 @@ public class ObjectiveTextAnimation : MonoBehaviour
     {
         EventManager.current.onDisplayObjective += DisplayObjective;
         EventManager.current.onHideObjective += HideObjective;
-        activeObjective = Instantiate(objectivePrefab, screenStart, Quaternion.identity, GetComponentInParent<Transform>()) as GameObject;
+        activeObjective = Instantiate(objectivePrefab, screenStart, Quaternion.identity, GameObject.FindWithTag("UICanvas").transform) as GameObject;
+        
     }
     void Update()
     {
@@ -54,7 +54,7 @@ public class ObjectiveTextAnimation : MonoBehaviour
         }
         if (hasMoved && activeObjective.transform.position == screenStart)
         {
-            Destroy(this.gameObject);
+            Destroy(activeObjective);
         }
     }
     public IEnumerator DisplayObjectiveText()

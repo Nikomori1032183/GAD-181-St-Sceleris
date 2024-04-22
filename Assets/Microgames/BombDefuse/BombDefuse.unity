@@ -3433,8 +3433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080e9e36967494345b7b33155cf85dd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectiveImage: {fileID: 0}
-  objectivePrefab: {fileID: 0}
+  objectivePrefab: {fileID: 5831575317287991996, guid: 668cd07c856434a4db5de1545962df89, type: 3}
   moveSpeed: 40
   timeToWait: 2
 --- !u!1660057539 &9223372036854775807
