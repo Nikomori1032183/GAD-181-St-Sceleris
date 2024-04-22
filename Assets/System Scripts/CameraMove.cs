@@ -14,13 +14,15 @@ public class CameraMove : MonoBehaviour
     [SerializeField] private Vector3 originPoint = new Vector3(0, 52, 0);
     [SerializeField] float moveSpeed;
     [SerializeField] private Vector3[] cameraPositions = new Vector3[6];
+    [SerializeField] private GameObject schoolObject;
     [SerializeField] private EventManager.SelectableClasses cameraMove;
     private bool isAtOrigin = false;
     private bool running = false;
     
     //Awake because load order is incorrect from scene heirarchy. Ensures it loads properly if heirarchy is not consistent. Remember this for other errors.
-    void Awake()
+    void Start()
     {
+        schoolObject = GameObject.FindWithTag("SchoolModel");
         EventManager.current.onClassSelect += ClassCameraPosition;
     }
 
@@ -69,12 +71,12 @@ public class CameraMove : MonoBehaviour
     //Camera movement checks if it is at the origin point before moving.
     void CameraMovement(int index)
     {
-        if (transform.position == originPoint)
+        if (schoolObject.transform.position == originPoint)
         {
             isAtOrigin = true;
         }
 
-        else if (transform.position == cameraPositions[index])
+        else if (schoolObject.transform.position == cameraPositions[index])
         {
             isAtOrigin = false;
             running = false;
@@ -82,12 +84,16 @@ public class CameraMove : MonoBehaviour
 
         if (isAtOrigin)
         {
-            transform.position = Vector3.MoveTowards(transform.position, cameraPositions[index], moveSpeed * Time.deltaTime); // Go to pos
+            schoolObject.transform.position = Vector3.MoveTowards(schoolObject.transform.position, cameraPositions[index], moveSpeed * Time.deltaTime); // Go to pos
         }
-
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, originPoint, moveSpeed * Time.deltaTime); // Return to origin
+            schoolObject.transform.position = Vector3.MoveTowards(schoolObject.transform.position, originPoint, moveSpeed * Time.deltaTime); // Return to origin
         }
+    }
+    [Button]
+    void CameraReturnToOrigin()
+    {
+        schoolObject.transform.position = Vector3.MoveTowards(schoolObject.transform.position, originPoint, moveSpeed * Time.deltaTime);
     }
 }

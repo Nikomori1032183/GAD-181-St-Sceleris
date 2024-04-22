@@ -8,6 +8,7 @@ TagManager:
   - Grate
   - bombdefuse_bomb
   - UICanvas
+  - SchoolModel
   layers:
   - Default
   - TransparentFX
