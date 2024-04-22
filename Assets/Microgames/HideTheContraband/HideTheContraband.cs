@@ -62,22 +62,29 @@ public class HideTheContraband : Microgame
     private void SpawnContraband()
     {
         Vector3 spawnPos = new Vector3(Random.Range(SpawnAreaPositions()[0].x, SpawnAreaPositions()[1].x), 0, Random.Range(SpawnAreaPositions()[0].z, SpawnAreaPositions()[1].z));
+        GameObject contrabandPrefab;
 
         switch (Random.Range(0, 3))
         {
             case 0:
-                Instantiate(contrabandPrefab1, spawnPos, Quaternion.identity);
+                contrabandPrefab = contrabandPrefab1;
                 break;
 
             case 1:
-                Instantiate(contrabandPrefab2, spawnPos, Quaternion.identity);
+                contrabandPrefab = contrabandPrefab2;
                 break;
 
             case 2:
-                Instantiate(contrabandPrefab3, spawnPos, Quaternion.identity);
+                contrabandPrefab = contrabandPrefab3;
+                break;
+
+            default:
+                contrabandPrefab = contrabandPrefab1;
                 break;
         }
-        
+
+        Quaternion rotation = new Quaternion(contrabandPrefab.transform.rotation.x + Random.Range(0, 361), contrabandPrefab.transform.rotation.y + Random.Range(0, 361), contrabandPrefab.transform.rotation.z + Random.Range(0, 361), contrabandPrefab.transform.rotation.w);
+        Instantiate(contrabandPrefab, spawnPos, rotation);
     }
 
     [Button]
@@ -95,13 +102,13 @@ public class HideTheContraband : Microgame
     {
         contrabandCollected++;
 
-        Debug.Log("Money Collected: " + contrabandCollected);
+        Debug.Log("Contraband Stashed: " + contrabandCollected);
 
         if (contrabandCollected >= contrabandAmount)
         {
             result = true;
 
-            Debug.Log("All Money Collected (Win)");
+            Debug.Log("All Contraband Stashed (Win)");
 
             StopMicrogame();
         }
