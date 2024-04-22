@@ -162,4 +162,15 @@ public class EventManager : MonoBehaviour
             onCutBar();
         }
     }
+
+    // Hide The Contraband Events
+    public event Action onContrabandStashed;
+    public void ContrabandStashed()
+
+    {
+        if (onContrabandStashed != null)
+        {
+            onContrabandStashed();
+        }
+    }
 }

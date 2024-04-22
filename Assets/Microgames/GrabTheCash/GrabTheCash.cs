@@ -62,8 +62,9 @@ public class GrabTheCash : Microgame
     private void SpawnPile()
     {
         Vector3 spawnPos = new Vector3(Random.Range(SpawnAreaPositions()[0].x, SpawnAreaPositions()[1].x), 0, Random.Range(SpawnAreaPositions()[0].z, SpawnAreaPositions()[1].z));
+        Quaternion rotation = new Quaternion(moneyPilePrefab.transform.rotation.x + Random.Range(0, 361), moneyPilePrefab.transform.rotation.y + Random.Range(0, 361), moneyPilePrefab.transform.rotation.z + Random.Range(0, 361), moneyPilePrefab.transform.rotation.w);
 
-        Instantiate(moneyPilePrefab, spawnPos, Quaternion.identity);
+        Instantiate(moneyPilePrefab, spawnPos, rotation);
     }
 
     [Button]
