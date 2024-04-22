@@ -63,6 +63,7 @@ public class SceneLoader : MonoBehaviour
     private void LoadLevelSelect()
     {
         LoadScene("LevelSelect");
+        EventManager.current.LevelSelectLoaded(SceneManager.GetSceneByName("LevelSelect"));
     }
 
     private void UnloadLevelSelect()

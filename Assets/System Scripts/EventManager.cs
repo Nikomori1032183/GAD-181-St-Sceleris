@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour
 {
@@ -104,6 +105,14 @@ public class EventManager : MonoBehaviour
         if (onLevelSelectMainMenu != null)
         {
             onLevelSelectMainMenu();
+        }
+    }
+    public event Action<Scene> onLevelSelectLoaded;
+    public void LevelSelectLoaded(Scene levelSelectScene)
+    {
+        if (onLevelSelectLoaded != null)
+        {
+            onLevelSelectLoaded(levelSelectScene);
         }
     }
 

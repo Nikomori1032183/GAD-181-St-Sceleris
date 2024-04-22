@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VInspector;
 
 public class CameraMove : MonoBehaviour
@@ -22,9 +23,11 @@ public class CameraMove : MonoBehaviour
     //Awake because load order is incorrect from scene heirarchy. Ensures it loads properly if heirarchy is not consistent. Remember this for other errors.
     void Start()
     {
-        schoolObject = GameObject.FindWithTag("SchoolModel");
+
         EventManager.current.onClassSelect += ClassCameraPosition;
+        EventManager.current.onLevelSelectLoaded += SetSchoolModel;
     }
+
 
     //Switch case controlls where the camera moves to. Array of Vector3's is indexed for the specific locations.
     void Update()
@@ -62,6 +65,11 @@ public class CameraMove : MonoBehaviour
         }
     }
 
+    void SetSchoolModel(Scene levelSelectScene)
+    {
+        StartCoroutine(DelayLookForSchool());        
+    }
+
     void ClassCameraPosition(EventManager.SelectableClasses className)
     {
         running = true;
@@ -95,5 +103,10 @@ public class CameraMove : MonoBehaviour
     void CameraReturnToOrigin()
     {
         schoolObject.transform.position = Vector3.MoveTowards(schoolObject.transform.position, originPoint, moveSpeed * Time.deltaTime);
+    }
+    IEnumerator DelayLookForSchool()
+    {
+        yield return new WaitForSeconds(0.1f);
+        schoolObject = GameObject.FindWithTag("SchoolModel");
     }
 }
