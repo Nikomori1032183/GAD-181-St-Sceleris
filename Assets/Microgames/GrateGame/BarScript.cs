@@ -15,6 +15,10 @@ namespace Bars
         [SerializeField] private GameObject[] barPatch = new GameObject[2];
         [SerializeField] private Animator mAnimator;
         [SerializeField] private Animation barAnimation;
+        [SerializeField] private CutTheGrate mainScriptRef;
+        [SerializeField] private AudioSource sfx;
+        [SerializeField] private AudioClip barSegmentCut;
+        [SerializeField] private AudioClip barFullCut;
         private bool animationPlayed = false;
 
         private void Start()
@@ -35,11 +39,13 @@ namespace Bars
         {
             if (!barCut.Contains(false) && !animationPlayed)
             {
-                
+                sfx.clip = barFullCut;
+                sfx.pitch = (Random.Range(0.9f, 1.1f));
+                sfx.PlayDelayed(1.5f);
                 Debug.Log("Bar Cut!");
                 mAnimator.SetTrigger("BarBroken");
                 animationPlayed = true;
-                
+                mainScriptRef.IterateBarCount();
             }
         }
 
@@ -64,7 +70,9 @@ namespace Bars
                 
                 if (IndexPos(bar) != -1)
                 {
-                    //Play Sounds
+                    sfx.clip = barSegmentCut;
+                    sfx.pitch = Random.Range(0.9f, 1.1f);
+                    sfx.Play();
 
                     EventManager.current.CutBar();
 

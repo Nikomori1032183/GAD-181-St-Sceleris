@@ -8,7 +8,9 @@ namespace Bars
     {
         [SerializeField] private GameObject[] allBarObjects = new GameObject[5];
         [SerializeField] private BarScript[] allBars = new BarScript[5];
-        [SerializeField] private ObjectiveTextAnimation objText;
+        [SerializeField] private int iterator = 0;
+        public bool gameDone = false;
+        
         protected override void Start()
         {
             base.Start();
@@ -23,7 +25,7 @@ namespace Bars
         }
         protected void Update()
         {
-
+            IsGameDone();
         }
 
         bool coroutineRunning = false;
@@ -53,11 +55,27 @@ namespace Bars
 
             if (!whatever)
             {
-                //Victory condition
                 StopMicrogame();
+                Debug.Log("MicrogameStopped");
             }
 
             coroutineRunning = false;
+        }
+        void IsGameDone()
+        {
+            if (!gameDone)
+            {
+                if (iterator == 5)
+                {
+                    result = true;
+                    gameDone = true;
+                    StopMicrogame();
+                }
+            }
+        }
+        public void IterateBarCount()
+        {
+            iterator++;
         }
 
         protected override void PlayMicrogame()
