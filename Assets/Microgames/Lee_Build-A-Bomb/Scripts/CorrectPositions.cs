@@ -8,6 +8,7 @@ public class CorrectPositions : MonoBehaviour
     //need to have: Correct location, collider, sense collision
 
     [SerializeField] GameObject mineObject;
+    [SerializeField] AudioSource clipSound;
     //[SerializeField] String mineName;
     //Collider myCollider;
     Rigidbody objectsRB;
@@ -35,6 +36,9 @@ public class CorrectPositions : MonoBehaviour
 
             inPos = true;
             EventManager.current.PieceCorrect();
+
+            //Play sound
+            clipSound.Play();
         }
     }
 }
