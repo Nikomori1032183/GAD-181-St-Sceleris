@@ -8,8 +8,7 @@ namespace Bars
     {
         [SerializeField] private GameObject[] allBarObjects = new GameObject[5];
         [SerializeField] private BarScript[] allBars = new BarScript[5];
-        //[SerializeField] private bool[] barsDone = new bool[5];
-        // Start is called before the first frame update
+        [SerializeField] private ObjectiveTextAnimation objText;
         protected override void Start()
         {
             base.Start();
@@ -20,6 +19,7 @@ namespace Bars
             {
                 allBars[i] = allBarObjects[i].GetComponent<BarScript>();
             }
+            //objText.
         }
         protected void Update()
         {

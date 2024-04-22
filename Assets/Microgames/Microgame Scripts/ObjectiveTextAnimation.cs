@@ -57,6 +57,12 @@ public class ObjectiveTextAnimation : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    public IEnumerator DisplayObjectiveText()
+    {
+        DisplayObjective();
+        yield return new WaitForSeconds(timeToWait);
+        HideObjective();
+    }
     [Button]
     void DisplayObjective()
     {
