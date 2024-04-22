@@ -19,7 +19,7 @@ public class CameraMove : MonoBehaviour
     private bool running = false;
     
     //Awake because load order is incorrect from scene heirarchy. Ensures it loads properly if heirarchy is not consistent. Remember this for other errors.
-    void Awake()
+    void Start()
     {
         EventManager.current.onClassSelect += ClassCameraPosition;
     }
