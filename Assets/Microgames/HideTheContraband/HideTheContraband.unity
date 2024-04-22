@@ -171,7 +171,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.5}
-  m_LocalScale: {x: 20, y: 1, z: 15}
+  m_LocalScale: {x: 20, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -208,9 +208,9 @@ MonoBehaviour:
   objectiveName: Frank
   objectiveTime: 10
   playTime: 10
-  contrabandPrefab1: {fileID: 4271120895929638421, guid: 3ce40ab0ee8039f44861997f13b940b4, type: 3}
-  contrabandPrefab2: {fileID: 4271120895929638421, guid: 3ce40ab0ee8039f44861997f13b940b4, type: 3}
-  contrabandPrefab3: {fileID: 4271120895929638421, guid: 3ce40ab0ee8039f44861997f13b940b4, type: 3}
+  contrabandPrefab1: {fileID: 6092159936083239680, guid: b96d334bc34d8f245b818768173d77dd, type: 3}
+  contrabandPrefab2: {fileID: 4669968713521897111, guid: 2572f1f9a9836af4da6ef819a1c528ce, type: 3}
+  contrabandPrefab3: {fileID: 8274632791386664243, guid: d319ac074b35bfc469e517d6bd86b032, type: 3}
   spawnArea: {fileID: 724078173}
   contrabandAmount: 10
 --- !u!4 &796082793
