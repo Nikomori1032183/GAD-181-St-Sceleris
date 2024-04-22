@@ -1,29 +1,57 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
+using VInspector;
 
 public class GradeScript : MonoBehaviour
 {
     [SerializeField] private Sprite[] winImages;
+    [SerializeField] private Sprite activeImage;
+    [SerializeField] private UnityEngine.UI.Image image;
     private enum grades {A, B, C, D, F,}
-    private grades grade;
+    [SerializeField] private grades grade = grades.A;
 
-    void DisplayGrade()
+    private void Start()
+    {
+    }
+
+    public void GradeButtonClick()
+    {
+        EventManager.current.GradeButtonClick();
+        Debug.Log("grade button click");
+    }
+
+    Sprite ChangeGrade()
     {
         switch (grade)
         {
             case grades.A:
-                break;
+                activeImage = winImages[0];
+                return activeImage;
             case grades.B:
-                break;
+                activeImage = winImages[1];
+                return activeImage;
             case grades.C:
-                break;
+                activeImage = winImages[2];
+                return activeImage;
             case grades.D:
-                break;
+                activeImage = winImages[3];
+                return activeImage;
             case grades.F:
-                break;
+                activeImage = winImages[4];
+                return activeImage;
             default:
-                break;
+                activeImage = winImages[0];
+                return activeImage;
         }
+    }
+
+    [Button]
+    private void UpdateImage()
+    {
+        image.sprite = ChangeGrade();
     }
 }

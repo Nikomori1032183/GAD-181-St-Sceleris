@@ -132,6 +132,19 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    // Grade Menu Events
+    public event Action onGradeButtonClick;
+
+    public void GradeButtonClick()
+    {
+        Debug.Log("event fired");
+
+        if (onGradeButtonClick != null)
+        {
+            onGradeButtonClick();
+        }
+    }
+
     // Timer Events
     public event Action onTimerStop;
     public void TimerStop()
