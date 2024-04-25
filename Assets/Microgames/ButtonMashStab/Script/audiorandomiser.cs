@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class audiorandomiser : MonoBehaviour
 {
-    public AudioClip[] audioClips; // Array to hold audio clips for randomization
-    private AudioSource painSource; // Reference to the AudioSource component
+    public AudioClip[] audioClips; 
+    private AudioSource painSource; 
 
     void Start()
     {
@@ -19,15 +19,17 @@ public class audiorandomiser : MonoBehaviour
 
 
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        // Check if the object that collided has a Rigidbody component (is interactable)
-        if (other.GetComponent<Rigidbody>())
+       
+        if (other.gameObject.GetComponent<Rigidbody>())
         {
-            // Play a random audio clip from the array
+            
             int randomIndex = Random.Range(0, audioClips.Length);
             painSource.clip = audioClips[randomIndex];
             painSource.Play();
+
+            Debug.Log(painSource.clip);
         }
     }
 }
