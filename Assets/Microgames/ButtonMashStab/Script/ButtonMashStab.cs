@@ -13,7 +13,7 @@ public class ButtonMashStab : Microgame
     override protected void Start()
     {
         base.Start();
-        InputManager.current.onLeftClick += Stab;
+        InputManager.current.onLeftClickDown += Stab;
         EventManager.current.onGuardStab += GuardStabbed;
     }
 

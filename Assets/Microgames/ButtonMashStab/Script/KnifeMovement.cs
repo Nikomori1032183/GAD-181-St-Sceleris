@@ -14,7 +14,7 @@ public class KnifeMovement : MonoBehaviour
 
     bool stabbing;
     bool returning;
-    private bool isMouseDown = false;
+    
 
     private void Start()
     {
@@ -29,8 +29,6 @@ public class KnifeMovement : MonoBehaviour
         }
 
         Movement();
-
-
     }
 
     void Movement()
