@@ -332,7 +332,6 @@ MonoBehaviour:
   - {x: 0.17, y: 4.77, z: 4.47}
   - {x: -10.36, y: 4.77, z: 4.47}
   schoolObject: {fileID: 0}
-  _schoolObject: {fileID: 0}
   cameraMove: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
