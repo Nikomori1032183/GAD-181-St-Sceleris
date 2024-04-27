@@ -158,6 +158,7 @@ public class MicrogameManager : MonoBehaviour
     {
         Debug.Log("UnloadMicrogame");
 
+        Debug.Log("Unloading " + currentMicrogameName);
         EventManager.current.UnloadMicrogame(currentMicrogameName); 
     }
 

@@ -20,16 +20,21 @@ public class GrabTheCash : Microgame
         base.Start();
 
         EventManager.current.onCashCollected += CollectMoney;
-    }
-
-    override protected void PlayMicrogame()
-    {
-        base.PlayMicrogame();
 
         moneyCollected = 0;
 
         Debug.Log("money collected: " + moneyCollected);
         Debug.Log("money piles: " + moneyPiles);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.current.onCashCollected -= CollectMoney;
+    }
+
+    override protected void PlayMicrogame()
+    {
+        base.PlayMicrogame();
 
         SpawnMoney();
     }

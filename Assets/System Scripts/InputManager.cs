@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager current;
 
-    private bool controlsActive = true;
+    [SerializeField] private bool controlsActive = true;
 
     private Vector3 mousePosition;
 

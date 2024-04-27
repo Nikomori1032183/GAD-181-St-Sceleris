@@ -26,6 +26,8 @@ public class EventManager : MonoBehaviour
     public event Action onMicrogameSceneLoaded;
     public void MicrogameSceneLoaded()
     {
+        Debug.Log("MicrogameSceneLoaded");
+
         if (onMicrogameSceneLoaded != null)
         {
             onMicrogameSceneLoaded();

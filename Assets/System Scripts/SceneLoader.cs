@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VInspector;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -11,10 +12,9 @@ public class SceneLoader : MonoBehaviour
     {
         // Event Hooks
         EventManager.current.onMainMenuPlay += LoadLevelSelect;
-        EventManager.current.onMainMenuPlay += UnloadMainMenu;
 
         EventManager.current.onLevelSelectMainMenu += LoadMainMenu;
-        EventManager.current.onLevelSelectMainMenu += UnloadLevelSelect;
+        EventManager.current.onClassSelect += LevelSelected;
 
         EventManager.current.onMicrogameSelected += LoadMicrogameScene;
         EventManager.current.onUnloadMicrogame += UnloadMicrogameScene;
@@ -39,6 +39,7 @@ public class SceneLoader : MonoBehaviour
     // Unload Scene
     private void UnloadScene(string sceneName)
     {
+        //Debug.Log(SceneManager.GetSceneByName(sceneName).isLoaded);
         if (SceneManager.GetSceneByName(sceneName).isLoaded)
         {
             SceneManager.UnloadSceneAsync(sceneName);
@@ -53,7 +54,7 @@ public class SceneLoader : MonoBehaviour
     // Set Active
     IEnumerator SetActiveSceneDelayed(string sceneName)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
     }
@@ -62,21 +63,18 @@ public class SceneLoader : MonoBehaviour
     // Main Menu
     private void LoadMainMenu()
     {
+        UnloadScene("LevelSelect");
         LoadScene("MainMenu");
-    }
-
-    private void UnloadMainMenu()
-    {
-        UnloadScene("MainMenu");
     }
 
     // Level Select
     private void LoadLevelSelect()
     {
+        UnloadScene("MainMenu");
         LoadScene("LevelSelect");
     }
 
-    private void UnloadLevelSelect()
+    private void LevelSelected(EventManager.SelectableClasses selectedClass)
     {
         UnloadScene("LevelSelect");
     }
@@ -84,10 +82,7 @@ public class SceneLoader : MonoBehaviour
     // Microgame Scenes
     private void LoadMicrogameScene(string microgameSceneName)
     {
-        if (SceneManager.GetSceneByName("LevelSelect") != null)
-        {
-            UnloadScene("LevelSelect");
-        }
+        Debug.Log("Load Microgame Scene");
 
         LoadScene(microgameSceneName);
 
@@ -98,4 +93,17 @@ public class SceneLoader : MonoBehaviour
     {
         UnloadScene(microgameSceneName);
     }
+
+    //public string testSceneName;
+    //[Button]
+    //private void LoadTestScene()
+    //{
+    //    LoadScene(testSceneName);
+    //}
+
+    //[Button]
+    //private void UnloadTestScene()
+    //{
+    //    UnloadScene(testSceneName);
+    //}
 }
