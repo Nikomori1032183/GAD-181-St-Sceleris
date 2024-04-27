@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    int time = 0;
+    float time = 0;
 
     private void Start()
     {
-        //EventManager
+        EventManager.current.onMicrogamePlay += TimerStart;
     }
 
-    private IEnumerator TimerStart(int seconds)
+    private void TimerStart(float seconds)
+    {
+        Debug.Log("TimerStart");
+        StartCoroutine(TimerCoroutine(seconds));
+    }
+
+    private IEnumerator TimerCoroutine(float seconds)
     {
         time = seconds;
         UpdateVisual();
 
-        for (int i = 0; i > 0; i--)
+        for (; time > 0; time--)
         {
             yield return new WaitForSeconds(1);
             UpdateVisual();
@@ -28,10 +34,12 @@ public class Timer : MonoBehaviour
     private void UpdateVisual()
     {
         //
+        Debug.Log("Time: " + time);
     }
 
     private void TimerStop()
     {
+        StopAllCoroutines();
         EventManager.current.TimerStop();
     }
 }

@@ -16,7 +16,6 @@ public abstract class Microgame : MonoBehaviour
     // MAKE SURE TO OVERRIDE
     protected virtual void Start()
     {
-        EventManager.current.onTimerStop += PlayMicrogame;
         EventManager.current.onTimerStop += StopMicrogame;
     }
 

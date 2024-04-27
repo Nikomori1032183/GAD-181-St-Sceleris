@@ -7,9 +7,11 @@ using VInspector;
 
 public class SceneLoader : MonoBehaviour
 {
-
+    public static SceneLoader current;
     void Start()
     {
+        current = this;
+
         // Event Hooks
         EventManager.current.onMainMenuPlay += LoadLevelSelect;
 
@@ -54,7 +56,7 @@ public class SceneLoader : MonoBehaviour
     // Set Active
     IEnumerator SetActiveSceneDelayed(string sceneName)
     {
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.25f);
 
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
     }
