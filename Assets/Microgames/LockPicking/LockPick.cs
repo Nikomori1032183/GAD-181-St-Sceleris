@@ -13,7 +13,7 @@ public class LockPick : Microgame
     [Range(1, 25)]
     public float lockRange = 10;
     private float eulerAngle;//current angle which locks at
-    private float unlockAngle;//angle which it will unlock at
+    private float unlockAngle;
     private Vector2 unlockRange;
 
     private float keyPressTime = 0;
@@ -25,6 +25,7 @@ public class LockPick : Microgame
     {
        base.Start();
        newLock();
+       Debug.Log("Lock Pick Microgame started");
     }
 
     // Update is called once per frame
@@ -50,15 +51,20 @@ public class LockPick : Microgame
             transform.rotation = rotateTo;
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             movePick = false;
             keyPressTime = 1;
         }
-        if (Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             movePick = true;
             keyPressTime = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StopMicrogame();
         }
 
         float percentage = Mathf.Round(100 - Mathf.Abs(((eulerAngle - unlockAngle) / 100) * 100));
@@ -72,10 +78,8 @@ public class LockPick : Microgame
         {
             if (eulerAngle < unlockRange.y && eulerAngle > unlockRange.x)
             {
-                Debug.Log("Lock is unlocked!"); //win
+                Debug.Log("Lock is unlocked!"); //win log
                 newLock();
-                
-
                 movePick = true;
                 keyPressTime = 0;
                 result = true;
@@ -98,6 +102,7 @@ public class LockPick : Microgame
     {
         unlockAngle = Random.Range(-maxAngle + lockRange, maxAngle - lockRange);
         unlockRange = new Vector2(unlockAngle - lockRange, unlockAngle + lockRange);
+        Debug.Log("Unlock Angle: " + unlockAngle);
     }
 
     protected override void PlayMicrogame()
