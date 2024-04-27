@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class ButtonMashStab : Microgame
@@ -43,18 +44,12 @@ public class ButtonMashStab : Microgame
         Debug.Log(timesStabbed);
 
         knife.SetReturning(true);
-        
+
         if (timesStabbed >= stabQuota)
         {
             result = true;
             Debug.Log("You Won!");
-
-            EndGame();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-    }
-
-    void EndGame()
-    {
-        Debug.Log("Game Over!");
     }
 }

@@ -122,4 +122,14 @@ public class EventManager : MonoBehaviour
             onGuardStab();
         }
     }
+
+    public event Action onDiffBombHighlight;
+
+    public void BombRed()
+    {
+        if(onDiffBombHighlight != null)
+        {
+            onDiffBombHighlight();
+        }
+    }
 }

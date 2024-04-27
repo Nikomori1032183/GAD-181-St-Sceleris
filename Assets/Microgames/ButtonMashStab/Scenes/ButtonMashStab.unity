@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43968028, g: 0.4800862, b: 0.5250614, a: 1}
+  m_IndirectSpecularColor: {r: 0.43871918, g: 0.47853816, b: 0.52205473, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 761897388}
   - component: {fileID: 761897387}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: schoolwall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1164,7 +1164,7 @@ GameObject:
   - component: {fileID: 1367452575}
   - component: {fileID: 1367452574}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Stabguard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1452,7 +1452,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037517889}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09895194, y: 0.125914, z: -0.012623375, w: 0.9870131}
+  m_LocalRotation: {x: 0.09502578, y: 0.12992528, z: -0.012510383, w: 0.9868805}
   m_LocalPosition: {x: 2.96, y: 0.852, z: -5.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

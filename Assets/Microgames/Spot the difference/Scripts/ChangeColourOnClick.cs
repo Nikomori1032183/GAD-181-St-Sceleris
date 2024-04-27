@@ -6,6 +6,10 @@ public class ChangeColourOnClick : MonoBehaviour
 {
     public Color newColor = Color.red;
 
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
         
@@ -23,8 +27,12 @@ public class ChangeColourOnClick : MonoBehaviour
                 if (renderer != null)
                 {
                     renderer.material.color = newColor;
+
+                    
                 }
             }
         }
     }
+
+    
 }

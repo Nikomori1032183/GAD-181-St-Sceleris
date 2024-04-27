@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Microgames/Spot the difference/Scenes/Spot the Difference.unity
+    guid: e1b66efbb269f414bbcb14abc16a435f
+  - enabled: 1
+    path: Assets/Microgames/Spot the difference/Scenes/Congrats grade.unity
+    guid: 7569aaca8d19ea849a9ba8946eb4311f
   m_configObjects: {}
