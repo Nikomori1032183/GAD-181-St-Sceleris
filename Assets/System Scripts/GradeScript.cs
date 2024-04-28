@@ -146,5 +146,9 @@ public class GradeScript : MonoBehaviour
             //Debug.Log(tick);
             image.color = Color.LerpUnclamped(new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), tick/10);
         }
+        if (image.color == new Color(1f, 1f, 1f, 1f))
+        {
+            EventManager.current.GradePresented();
+        }
     }
 }

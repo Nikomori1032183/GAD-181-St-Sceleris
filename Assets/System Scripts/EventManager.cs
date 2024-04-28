@@ -174,6 +174,15 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public event Action onGradePresented;
+    public void GradePresented()
+    {
+        if (onGradePresented != null)
+        {
+            onGradePresented();
+        }
+    }
+
     // Timer Events
     public event Action onTimerStop;
     public void TimerStop()
