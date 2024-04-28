@@ -8,13 +8,20 @@ public class ObjectiveTextAnimation : MonoBehaviour
 {
     [SerializeField] private Object objectivePrefab;
     [SerializeField] private int moveSpeed = 500;
-    [SerializeField] private int timeToWait = 2;
+    private GameObject activeObjective;
+
+    private int timeToWait = 2;
+
     private Vector3 screenStart = new Vector3(Screen.width * 0.5f, (Screen.height - Screen.height - 200), 0);
     private Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+
     private bool boolA;
     private bool boolB;
+
     private bool hasMoved = false;
-    private GameObject activeObjective;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
