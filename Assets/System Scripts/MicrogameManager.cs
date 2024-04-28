@@ -165,8 +165,19 @@ public class MicrogameManager : MonoBehaviour
 
         else
         {
-            // Show class grade screen
-            // then return to level select
+            Debug.Log("Should Fire Event");
+            SceneLoader.current.LoadScene("GradeScene");
+
+            // maybe unload popup ui
+
+            StartCoroutine(DelayedGameComplete());
         }
+    }
+
+    private IEnumerator DelayedGameComplete()
+    {
+        yield return new WaitForSeconds(1);
+
+        EventManager.current.GameComplete(wins);
     }
 }

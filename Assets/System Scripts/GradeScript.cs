@@ -16,8 +16,8 @@ public class GradeScript : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Image image;
 
     //Enum for grades state machine
-    private enum grades {A, B, C, D, F,}
-    [SerializeField] private grades grade = grades.A;
+    public enum Grades {A, B, C, D, F,}
+    [SerializeField] private Grades currentGrade;
 
     [SerializeField] private UnityEngine.UI.Image reportCard;
     [SerializeField] private Sprite reportCardSprite;
@@ -36,7 +36,8 @@ public class GradeScript : MonoBehaviour
         reportCard.sprite = reportCardSprite;               //Set the report card sprite default. this is changed at runtime
         reportCard.transform.position = screenBottom;       //Set the report card start position
         image.color = new Color(1f, 1f, 1f, 0f);            //Makes the grade image 100% transparent for the fade in
-        
+
+        EventManager.current.onGameComplete += ClassComplete;
     }
 
     private void Update()
@@ -44,53 +45,90 @@ public class GradeScript : MonoBehaviour
         MoveCard();
     }
 
+
+    [Button]
     public void GradeButtonClick()
-        //Function called when button is clicked. Activates the event, updates the image and changes the grade.
     {
-        EventManager.current.GradeButtonClick();
-        UpdateImage(ChangeGrade(grades.A));         //THIS IS A DEFAULT CASE. CHANGE FROM A WHEN YOU IMPLEMENT
-        doMove = true;
-        //Debug.Log("grade button click");
+        SetGrade(Grades.B);
     }
 
-    Sprite ChangeGrade(grades grade)
-        //switch case accessed when grades are requested to be shown. Returns the relvant image as a sprite which is displayed
+    private void ClassComplete(int wins)
     {
-        switch (grade)
+        Debug.Log("Class Complete Wins: " + wins);
+        if (wins == 10)
         {
-            case grades.A:
-                activeImage = winImages[0];
-                return activeImage;
-            case grades.B:
-                activeImage = winImages[1];
-                return activeImage;
-            case grades.C:
-                activeImage = winImages[2];
-                return activeImage;
-            case grades.D:
-                activeImage = winImages[3];
-                return activeImage;
-            case grades.F:
-                activeImage = winImages[4];
-                return activeImage;
-            default:
-                activeImage = winImages[0];
-                return activeImage;
+            SetGrade(Grades.A);
+        }
+
+        else if (wins >= 8)
+        {
+            SetGrade(Grades.B);
+        }
+
+        else if (wins >= 6)
+        {
+            SetGrade(Grades.C);
+        }
+
+        else if (wins >= 4)
+        {
+            SetGrade(Grades.D);
+        }
+
+        else
+        {
+            Debug.Log("F");
+            SetGrade(Grades.F);
         }
     }
 
-    [Button]
-    private void UpdateImage(Sprite sprite)
-        //Method to update the sprite based on the grade input.
+    //Function called when button is clicked. Activates the event, updates the image and changes the grade.
+    public void SetGrade(Grades grade)
     {
-        image.sprite = ChangeGrade(grades.A);       //THIS IS A DEFAULT CASE. CHANGE FROM A WHEN YOU IMPLEMENT
+        Debug.Log("SetGrade");
+
+        //EventManager.current.GradeButtonClick();
+        currentGrade = grade;
+
+        UpdateImage();
+        doMove = true;
+
+        //Debug.Log("grade button click");
     }
 
-    void MoveCard()
-        //Code based animation is fun (lie). Moves the report card to the middle of the screen and fades in the grade image
+    [Button]
+    private void UpdateImage() //Method to update the sprite based on the grade input.
     {
+        switch (currentGrade)
+        {
+            case Grades.A:
+                image.sprite = winImages[0];
+                break;
+            case Grades.B:
+                image.sprite = winImages[1];
+                break;
+            case Grades.C:
+                image.sprite = winImages[2];
+                break;
+            case Grades.D:
+                image.sprite = winImages[3];
+                break;
+            case Grades.F:
+                image.sprite = winImages[4];
+                break;
+            default:
+                image.sprite = winImages[4];
+                break;
+        }
+    }
+
+    void MoveCard() //Code based animation is fun (lie). Moves the report card to the middle of the screen and fades in the grade image
+    {
+
+        Debug.Log("Dont Move The Fucker");
         if (doMove)
         {
+            Debug.Log("Move The Fucker");
             reportCard.transform.position = Vector3.MoveTowards(reportCard.transform.position, screenMid, Screen.height * Time.deltaTime);
             if (reportCard.transform.position == screenMid)
             {
@@ -100,12 +138,12 @@ public class GradeScript : MonoBehaviour
     }
 
     void GradeBecomeVisible()
-        //Mkaes the grade become visible.
+        //Makes the grade become visible.
     {
         if (image.color != new Color(1f, 1f, 1f, 1f) && tick < 10.1f)
         {
             tick += (Time.deltaTime * 5);
-            Debug.Log(tick);
+            //Debug.Log(tick);
             image.color = Color.LerpUnclamped(new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), tick/10);
         }
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VInspector;
 
 public class EventManager : MonoBehaviour
 {
@@ -22,6 +23,23 @@ public class EventManager : MonoBehaviour
             onMicrogameSelected(microgameName);
         }
     }
+
+    [Button]
+    public void TestGameComplete()
+    {
+        GameComplete(4);
+    }
+
+    public event Action<int> onGameComplete;
+    public void GameComplete(int wins)
+    {
+        Debug.Log("GameComplete");
+        if (onGameComplete != null)
+        {
+            onGameComplete(wins);
+        }
+    }
+
 
     // Scene Loader Events
     public event Action<Scene> onActiveSceneSet;
