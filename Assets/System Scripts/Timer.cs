@@ -18,6 +18,7 @@ public class Timer : MonoBehaviour
 
         Debug.Log("TimerStart");
 
+        StopCoroutine(TimerCoroutine(seconds));
         StartCoroutine(TimerCoroutine(seconds));
     }
 

@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using VInspector;
 
 public class ObjectivePopup : MonoBehaviour
 {
-    private Image image;
-
     [SerializeField] private int moveSpeed = 500;
 
-    private int timeToWait = 2;
+    [SerializeField] private Vector3 displayPos;
+    [SerializeField] private Vector3 hidePos;
 
-    private Vector3 screenStart = new Vector3(Screen.width * 0.5f, (Screen.height - Screen.height - 200), 0);
-    private Vector3 screenCenter = new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0);
+    private Image image;
 
     private bool boolA;
     private bool boolB;
@@ -23,8 +22,7 @@ public class ObjectivePopup : MonoBehaviour
     {
         image = GetComponent<Image>();
 
-        EventManager.current.onDisplayObjective += DisplayObjective;
-        EventManager.current.onHideObjective += HideObjective;
+        EventManager.current.onPopup += StartPopup;
     }
 
 
@@ -41,25 +39,51 @@ public class ObjectivePopup : MonoBehaviour
         }
     }
 
+    void StartPopup(float displayTime)
+    {
+        StartCoroutine(Popup(displayTime));
+    }
+
+    IEnumerator Popup(float displayTime)
+    {
+        DisplayObjective();
+
+        yield return new WaitForSeconds(displayTime);
+
+        HideObjective();
+
+        EventManager.current.PopUpFinished();
+    }
+
+    [Button]
     void DisplayObjective()
     {
+        Debug.Log("DisplayObjective");
         boolA = true;
         boolB = false;
     }
-    
+
+    [Button]
     void HideObjective()
     {
+        Debug.Log("HideObjective");
         boolB = true;
         boolA = false;
     }
 
+    void SetSprite(Sprite sprite)
+    {
+        image.sprite = sprite;
+    }
+
     void Display()
     {
-        if (!hasMoved && transform.position != screenCenter)
+        if (!hasMoved && transform.position != displayPos)
         {
-            transform.position = Vector3.MoveTowards(transform.position, screenCenter, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, displayPos, moveSpeed * Time.deltaTime);
         }
-        if (!hasMoved && transform.position == screenCenter)
+
+        if (!hasMoved && transform.position == displayPos)
         {
 
             hasMoved = true;
@@ -69,9 +93,10 @@ public class ObjectivePopup : MonoBehaviour
     {
         if (hasMoved)
         {
-            transform.position = Vector3.MoveTowards(transform.position, screenStart, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, hidePos, moveSpeed * Time.deltaTime);
         }
-        if (hasMoved && transform.position == screenStart)
+
+        if (hasMoved && transform.position == hidePos)
         {
             hasMoved = false;
         }

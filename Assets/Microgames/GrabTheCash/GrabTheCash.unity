@@ -626,8 +626,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveName: Grab The Cash
-  objectiveTime: 1
-  playTime: 10
+  objectiveTime: 2
+  playTime: 15
   moneyPilePrefab: {fileID: 1084093542224388906, guid: 6e0fcb18ce5a2f84c9525e147cdcf00e, type: 3}
   spawnArea: {fileID: 790425865}
   moneyPiles: 10

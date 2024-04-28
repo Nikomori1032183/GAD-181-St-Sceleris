@@ -21,7 +21,7 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         Scene scene = SceneManager.GetSceneByName(sceneName);
-        Debug.Log(sceneName + "Scene Loaded");
+        //Debug.Log(sceneName + "Scene Loaded");
     }
 
     // Unload Scene By Name
@@ -30,7 +30,7 @@ public class SceneLoader : MonoBehaviour
         if (SceneManager.GetSceneByName(sceneName) != null)
         {
             SceneManager.UnloadSceneAsync(sceneName);
-            Debug.Log(sceneName + "Scene Unloaded");
+            //Debug.Log(sceneName + "Scene Unloaded");
         }
 
         else
@@ -44,7 +44,7 @@ public class SceneLoader : MonoBehaviour
         if (scene != null)
         {
             SceneManager.UnloadSceneAsync(scene);
-            Debug.Log(scene.name + "Scene Unloaded");
+            //Debug.Log(scene.name + "Scene Unloaded");
         }
 
         else
@@ -63,6 +63,6 @@ public class SceneLoader : MonoBehaviour
     {
         string activeSceneName = SceneManager.GetActiveScene().name;
         UnloadScene(activeSceneName);
-        Debug.Log(activeSceneName + "Scene Unloaded");
+        //Debug.Log(activeSceneName + "Scene Unloaded");
     }
 }

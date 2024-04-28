@@ -17,11 +17,13 @@ public abstract class Microgame : MonoBehaviour
     protected virtual void Start()
     {
         EventManager.current.onTimerStop += StopMicrogame;
+        EventManager.current.onPopupFinished += PlayMicrogame;
     }
 
     protected void OnDestroy()
     {
         EventManager.current.onTimerStop -= StopMicrogame;
+        EventManager.current.onPopupFinished -= PlayMicrogame;
     }
 
 
@@ -39,24 +41,7 @@ public abstract class Microgame : MonoBehaviour
     public void StartMicrogame()
     {
         Debug.Log("StartMicrogame");
-        PlayMicrogame();
-        //StartCoroutine(DisplayObjective());
-    }
-
-    protected IEnumerator DisplayObjective()
-    {
-        Debug.Log("Display Objective");
-        // Tell UI Manager to display Objective Text
-        EventManager.current.DisplayObjective();
-
-        // Wait Time
-        yield return new WaitForSeconds(objectiveTime);
-
-        // Tell UI Manager to stop displaying Objective Text
-        EventManager.current.HideObjective();
-
-        // Play Microgame
-        PlayMicrogame();
+        EventManager.current.PopUp(objectiveTime);
     }
    
     // MAKE SURE TO OVERRIDE

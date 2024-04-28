@@ -27,7 +27,7 @@ public class EventManager : MonoBehaviour
     public event Action<Scene> onActiveSceneSet;
     public void ActiveSceneSet(Scene scene)
     {
-        Debug.Log("ActiveSceneSet");
+        //Debug.Log("ActiveSceneSet");
 
         if (onActiveSceneSet != null)
         {
@@ -36,21 +36,21 @@ public class EventManager : MonoBehaviour
     }
 
     // Microgame Events
-    public event Action onDisplayObjective;
-    public void DisplayObjective()
+    public event Action<float> onPopup;
+    public void PopUp(float displayTime)
     {
-        if (onDisplayObjective != null)
+        if (onPopup != null)
         {
-            onDisplayObjective();
+            onPopup(displayTime);
         }
     }
 
-    public event Action onHideObjective;
-    public void HideObjective()
+    public event Action onPopupFinished;
+    public void PopUpFinished()
     {
-        if (onHideObjective != null)
+        if (onPopupFinished != null)
         {
-            onHideObjective();
+            onPopupFinished();
         }
     }
 

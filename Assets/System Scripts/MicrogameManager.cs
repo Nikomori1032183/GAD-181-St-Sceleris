@@ -120,7 +120,7 @@ public class MicrogameManager : MonoBehaviour
 
     private void SelectRandomMicrogame()
     {
-        Debug.Log("SelectRandomMicrogame");
+        //Debug.Log("SelectRandomMicrogame");
 
         currentMicrogameName = currentMicrogameClass[Random.Range(0, currentMicrogameClass.Count)];
 
