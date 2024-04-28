@@ -19,7 +19,12 @@ public abstract class Microgame : MonoBehaviour
         EventManager.current.onTimerStop += StopMicrogame;
     }
 
-    
+    protected void OnDestroy()
+    {
+        EventManager.current.onTimerStop -= StopMicrogame;
+    }
+
+
     // I think that hese actually arent needed anymore after building out some of the systems but il leave it here just in case
     //private bool GetResult()
     //{
@@ -34,11 +39,13 @@ public abstract class Microgame : MonoBehaviour
     public void StartMicrogame()
     {
         Debug.Log("StartMicrogame");
-        StartCoroutine(DisplayObjective());
+        PlayMicrogame();
+        //StartCoroutine(DisplayObjective());
     }
 
     protected IEnumerator DisplayObjective()
     {
+        Debug.Log("Display Objective");
         // Tell UI Manager to display Objective Text
         EventManager.current.DisplayObjective();
 
@@ -69,8 +76,12 @@ public abstract class Microgame : MonoBehaviour
     {
         Debug.Log("StopMicrogame");
 
+        
+
         EventManager.current.MicrogameStop(result);
 
         InputManager.current.SetControlsActive(false);
+
+        SceneLoader.current.UnloadScene(gameObject.scene);
     }
 }

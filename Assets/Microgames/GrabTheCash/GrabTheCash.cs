@@ -29,11 +29,6 @@ public class GrabTheCash : Microgame
         Debug.Log("money piles: " + moneyPiles);
     }
 
-    private void OnDestroy()
-    {
-        EventManager.current.onCashCollected -= CollectMoney;
-    }
-
     override protected void PlayMicrogame()
     {
         base.PlayMicrogame();

@@ -76,6 +76,7 @@ public class MicrogameManager : MonoBehaviour
     void Start()
     {
         EventManager.current.onClassSelect += SelectClass;
+        EventManager.current.onActiveSceneSet += DelayedLoadMicrogame;
         EventManager.current.onMicrogameStop += MicrogameFinished;
     }
 
@@ -123,42 +124,24 @@ public class MicrogameManager : MonoBehaviour
 
         currentMicrogameName = currentMicrogameClass[Random.Range(0, currentMicrogameClass.Count)];
 
-        EventManager.current.SelectMicrogame(currentMicrogameName);
+        SceneLoader.current.LoadScene(currentMicrogameName);
     }
 
-    [Button]
-    private void LoadMicrogame()
+    private void DelayedLoadMicrogame(Scene scene)
     {
-        Debug.Log("LoadMicrogame");
+        if (scene.name == currentMicrogameName)
+        {
+            // Set the current Microgame
+            currentMicrogame = FindObjectOfType<Microgame>();
+            Debug.Log(currentMicrogame.name);
 
-        // Set the current Microgame
-        currentMicrogame = FindObjectOfType<Microgame>();
-        Debug.Log(currentMicrogame.name);
+            // Remove Microgame From List
+            currentMicrogameClass.Remove(currentMicrogameName);
 
-        // Remove Microgame From List
-        currentMicrogameClass.Remove(currentMicrogameName);
+            Debug.Log("Microgame Loaded");
 
-        StartMicrogame();
-    }
-
-    IEnumerator DelayedLoadMicrogame()
-    {
-        yield return new WaitForSeconds(1);
-
-        LoadMicrogame();
-    }
-
-    void StartDelayedLoadMicrogame()
-    {
-        StartCoroutine(DelayedLoadMicrogame());
-    }
-
-    private void UnloadMicrogame()
-    {
-        Debug.Log("UnloadMicrogame");
-
-        Debug.Log("Unloading " + currentMicrogameName);
-        EventManager.current.UnloadMicrogame(currentMicrogameName); 
+            StartMicrogame();
+        }
     }
 
     private void StartMicrogame()
@@ -174,8 +157,6 @@ public class MicrogameManager : MonoBehaviour
         {
             wins++;
         }
-
-        UnloadMicrogame();
 
         if (currentMicrogameClass.Count > 0)
         {

@@ -24,16 +24,16 @@ public class EventManager : MonoBehaviour
     }
 
     // Scene Loader Events
-    //public event Action onMicrogameSceneLoaded;
-    //public void MicrogameSceneLoaded()
-    //{
-    //    Debug.Log("MicrogameSceneLoaded");
+    public event Action<Scene> onActiveSceneSet;
+    public void ActiveSceneSet(Scene scene)
+    {
+        Debug.Log("ActiveSceneSet");
 
-    //    if (onMicrogameSceneLoaded != null)
-    //    {
-    //        onMicrogameSceneLoaded();
-    //    }
-    //}
+        if (onActiveSceneSet != null)
+        {
+            onActiveSceneSet(scene);
+        }
+    }
 
     // Microgame Events
     public event Action onDisplayObjective;
@@ -199,7 +199,6 @@ public class EventManager : MonoBehaviour
     // Hide The Contraband Events
     public event Action onContrabandStashed;
     public void ContrabandStashed()
-
     {
         if (onContrabandStashed != null)
         {

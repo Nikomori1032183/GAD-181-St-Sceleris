@@ -13,15 +13,16 @@ public class Timer : MonoBehaviour
 
     private void TimerStart(float seconds)
     {
+        time = seconds;
+        UpdateVisual();
+
         Debug.Log("TimerStart");
+
         StartCoroutine(TimerCoroutine(seconds));
     }
 
     private IEnumerator TimerCoroutine(float seconds)
     {
-        time = seconds;
-        UpdateVisual();
-
         for (; time > 0; time--)
         {
             yield return new WaitForSeconds(1);
@@ -39,7 +40,6 @@ public class Timer : MonoBehaviour
 
     private void TimerStop()
     {
-        StopAllCoroutines();
         EventManager.current.TimerStop();
     }
 }

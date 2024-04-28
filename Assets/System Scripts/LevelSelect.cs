@@ -43,35 +43,41 @@ public class LevelSelect : MonoBehaviour
     {
         Debug.Log("Planning Click");
         EventManager.current.ClassSelect(EventManager.SelectableClasses.Planning);
+        SceneLoader.current.UnloadScene("LevelSelect");
     }
 
     private void StealthButton() // Select Stealth Class
     {
         Debug.Log("Stealth Click");
         EventManager.current.ClassSelect(EventManager.SelectableClasses.Stealth);
+        SceneLoader.current.UnloadScene("LevelSelect");
     }
 
     private void TheftButton() // Select Theft Class
     {
         Debug.Log("Theft Click");
         EventManager.current.ClassSelect(EventManager.SelectableClasses.Theft);
+        SceneLoader.current.UnloadScene("LevelSelect");
     }
 
     private void WeaponsButton() // Select Weapons Class
     {
         Debug.Log("Weapons Click");
         EventManager.current.ClassSelect(EventManager.SelectableClasses.Weapons);
+        SceneLoader.current.UnloadScene("LevelSelect");
     }
 
     private void ExplosivesButton() // Select Explosives Class
     {
         Debug.Log("Explosives Click");
         EventManager.current.ClassSelect(EventManager.SelectableClasses.Explosives);
+        SceneLoader.current.UnloadScene("LevelSelect");
     }
 
     private void EscapeButton() // Select Escape Class
     {
         Debug.Log("Escape Click");
         EventManager.current.ClassSelect(EventManager.SelectableClasses.Escape);
+        SceneLoader.current.UnloadScene("LevelSelect");
     }
 }

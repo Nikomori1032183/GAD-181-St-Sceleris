@@ -39,9 +39,24 @@ public class SceneLoader : MonoBehaviour
         }
     }
 
+    public void UnloadScene(Scene scene)
+    {
+        if (scene != null)
+        {
+            SceneManager.UnloadSceneAsync(scene);
+            Debug.Log(scene.name + "Scene Unloaded");
+        }
+
+        else
+        {
+            Debug.Log(scene.name + "Scene Unable To Unload");
+        }
+    }
+
     public void SetActiveScene(Scene scene, LoadSceneMode loadSceneMode)
     {
         SceneManager.SetActiveScene(scene);
+        EventManager.current.ActiveSceneSet(scene);
     }
 
     public void UnloadActiveScene()
