@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class SpotheDifference : Microgame
 {
     [SerializeField] ChangeColourOnClick diffBomb;
+    [SerializeField] int bombPartHighlight = 3;
+    int bombPartHighlighted = 0;
 
     override protected void Start()
     {
@@ -24,7 +26,7 @@ public class SpotheDifference : Microgame
         base.StopMicrogame();
     }
 
-    void HighlightObject()
+    void BombRed()
     {
         if (playing)
         {
@@ -35,8 +37,17 @@ public class SpotheDifference : Microgame
         }
     }
 
-    void BombRed()
+    void HighlightObject()
     {
+        bombPartHighlighted++;
+        Debug.Log(bombPartHighlighted);
 
+
+        if(bombPartHighlighted >= bombPartHighlight)
+        {
+            result = true;
+            Debug.Log("You Win!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
