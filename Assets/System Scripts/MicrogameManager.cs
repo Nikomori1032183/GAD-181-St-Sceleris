@@ -77,7 +77,6 @@ public class MicrogameManager : MonoBehaviour
     {
         EventManager.current.onClassSelect += SelectClass;
         EventManager.current.onMicrogameStop += MicrogameFinished;
-        EventManager.current.onMicrogameSceneLoaded += StartDelayedLoadMicrogame;
     }
 
     private void SelectClass(EventManager.SelectableClasses selectedClass)

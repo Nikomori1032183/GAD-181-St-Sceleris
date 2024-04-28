@@ -8,104 +8,46 @@ using VInspector;
 public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader current;
+
     void Start()
     {
         current = this;
 
-        // Event Hooks
-        EventManager.current.onMainMenuPlay += LoadLevelSelect;
-
-        EventManager.current.onLevelSelectMainMenu += LoadMainMenu;
-        EventManager.current.onClassSelect += LevelSelected;
-
-        EventManager.current.onMicrogameSelected += LoadMicrogameScene;
-        EventManager.current.onUnloadMicrogame += UnloadMicrogameScene;
+        SceneManager.sceneLoaded += SetActiveScene;
     }
 
-    // Load Scene
-    private void LoadScene(string sceneName)
+    // Load Scene By Name
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+        Debug.Log(sceneName + "Scene Loaded");
+    }
+
+    // Unload Scene By Name
+    public void UnloadScene(string sceneName)
     {
         if (SceneManager.GetSceneByName(sceneName) != null)
         {
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-            
-            StartCoroutine(SetActiveSceneDelayed(sceneName));
-        }
-
-        else
-        {
-            Debug.Log("Scene Name Not Found");
-        }
-    }
-
-    // Unload Scene
-    private void UnloadScene(string sceneName)
-    {
-        //Debug.Log(SceneManager.GetSceneByName(sceneName).isLoaded);
-        if (SceneManager.GetSceneByName(sceneName).isLoaded)
-        {
             SceneManager.UnloadSceneAsync(sceneName);
+            Debug.Log(sceneName + "Scene Unloaded");
         }
 
         else
         {
-            Debug.Log("Scene Name Not Found");
+            Debug.Log(sceneName + "Scene Unable To Unload");
         }
     }
-    
-    // Set Active
-    IEnumerator SetActiveSceneDelayed(string sceneName)
-    {
-        yield return new WaitForSeconds(0.25f);
 
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
+    public void SetActiveScene(Scene scene, LoadSceneMode loadSceneMode)
+    {
+        SceneManager.SetActiveScene(scene);
     }
 
-    // Menu Scenes
-    // Main Menu
-    private void LoadMainMenu()
+    public void UnloadActiveScene()
     {
-        UnloadScene("LevelSelect");
-        LoadScene("MainMenu");
+        string activeSceneName = SceneManager.GetActiveScene().name;
+        UnloadScene(activeSceneName);
+        Debug.Log(activeSceneName + "Scene Unloaded");
     }
-
-    // Level Select
-    private void LoadLevelSelect()
-    {
-        UnloadScene("MainMenu");
-        LoadScene("LevelSelect");
-    }
-
-    private void LevelSelected(EventManager.SelectableClasses selectedClass)
-    {
-        UnloadScene("LevelSelect");
-    }
-
-    // Microgame Scenes
-    private void LoadMicrogameScene(string microgameSceneName)
-    {
-        Debug.Log("Load Microgame Scene");
-
-        LoadScene(microgameSceneName);
-
-        EventManager.current.MicrogameSceneLoaded();
-    }
-
-    private void UnloadMicrogameScene(string microgameSceneName)
-    {
-        UnloadScene(microgameSceneName);
-    }
-
-    //public string testSceneName;
-    //[Button]
-    //private void LoadTestScene()
-    //{
-    //    LoadScene(testSceneName);
-    //}
-
-    //[Button]
-    //private void UnloadTestScene()
-    //{
-    //    UnloadScene(testSceneName);
-    //}
 }

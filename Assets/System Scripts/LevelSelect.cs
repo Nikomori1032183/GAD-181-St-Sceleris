@@ -35,7 +35,8 @@ public class LevelSelect : MonoBehaviour
     private void MainMenuButton() // Return to Main Menu
     {
         Debug.Log("Main Menu Click");
-        EventManager.current.LevelSelectMainMenu();
+        SceneLoader.current.LoadScene("MainMenu");
+        SceneLoader.current.UnloadScene("LevelSelect");
     }
 
     private void PlanningButton() // Select Planning Class

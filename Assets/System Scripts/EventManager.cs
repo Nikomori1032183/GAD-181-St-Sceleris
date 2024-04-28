@@ -23,16 +23,16 @@ public class EventManager : MonoBehaviour
     }
 
     // Scene Loader Events
-    public event Action onMicrogameSceneLoaded;
-    public void MicrogameSceneLoaded()
-    {
-        Debug.Log("MicrogameSceneLoaded");
+    //public event Action onMicrogameSceneLoaded;
+    //public void MicrogameSceneLoaded()
+    //{
+    //    Debug.Log("MicrogameSceneLoaded");
 
-        if (onMicrogameSceneLoaded != null)
-        {
-            onMicrogameSceneLoaded();
-        }
-    }
+    //    if (onMicrogameSceneLoaded != null)
+    //    {
+    //        onMicrogameSceneLoaded();
+    //    }
+    //}
 
     // Microgame Events
     public event Action onDisplayObjective;

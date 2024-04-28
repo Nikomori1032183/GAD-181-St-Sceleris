@@ -27,7 +27,8 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Play Button Click");
 
-        EventManager.current.MainMenuPlay();
+        SceneLoader.current.LoadScene("LevelSelect");
+        SceneLoader.current.UnloadScene("MainMenu");
     }
 
     // Exit - Close Application
