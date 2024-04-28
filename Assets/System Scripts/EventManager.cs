@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour
 {
@@ -117,6 +118,14 @@ public class EventManager : MonoBehaviour
             onLevelSelectMainMenu();
         }
     }
+    public event Action<Scene> onLevelSelectLoaded;
+    public void LevelSelectLoaded(Scene levelSelectScene)
+    {
+        if (onLevelSelectLoaded != null)
+        {
+            onLevelSelectLoaded(levelSelectScene);
+        }
+    }
 
     public enum SelectableClasses
     {
@@ -131,6 +140,19 @@ public class EventManager : MonoBehaviour
         if (onClassSelect != null)
         {
             onClassSelect(selectedClass);
+        }
+    }
+
+    // Grade Menu Events
+    public event Action onGradeButtonClick;
+
+    public void GradeButtonClick()
+    {
+        Debug.Log("event fired");
+
+        if (onGradeButtonClick != null)
+        {
+            onGradeButtonClick();
         }
     }
 

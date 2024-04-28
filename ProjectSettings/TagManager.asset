@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - BarPatch
+  - Grate
+  - bombdefuse_bomb
+  - UICanvas
+  - SchoolModel
   layers:
   - Default
   - TransparentFX
