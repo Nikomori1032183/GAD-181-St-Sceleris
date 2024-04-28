@@ -371,7 +371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU FOUND ALL 3 DIFFERECES!
+  m_text: YOU FOUND ALL 3 DIFFERENCES!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e49616979106034a889d687a052524b, type: 2}
   m_sharedMaterial: {fileID: -6806223785818539180, guid: 8e49616979106034a889d687a052524b, type: 2}
