@@ -42,23 +42,23 @@ public class SparksBehaviour : MonoBehaviour
     private void StartParticles()
     {
         //Commented Out To Prevent Errors For Now
-        float pitch = Random.Range(0.9f, 1.1f);
-        sparksNoise.pitch = pitch;
-        sparksNoise.Play();
-        sparks.Play();
+        //float pitch = Random.Range(0.9f, 1.1f);
+        //sparksNoise.pitch = pitch;
+        //sparksNoise.Play();
+        //sparks.Play();
     }
     [Button]
     public void StopParticles()
     {
         //Commented Out To Prevent Errors For Now
-        sparksNoise.Stop();
-        sparks.Stop();
+        //sparksNoise.Stop();
+        //sparks.Stop();
     }
 
     private void StopParticles(bool result)
     {
         //Commented Out To Prevent Errors For Now
-        sparksNoise.Stop();
-        sparks.Stop();
+        //sparksNoise.Stop();
+        //sparks.Stop();
     }
 }

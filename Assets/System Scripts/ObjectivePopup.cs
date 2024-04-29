@@ -71,6 +71,9 @@ public class ObjectivePopup : MonoBehaviour
             case "GetToTheEnd":
                 SetSprite(sprites[7]);
                 break;
+            case "SpotTheDifference":
+                SetSprite(sprites[8]);
+                break;
             case "ButtonMashStab":
                 SetSprite(sprites[9]);
                 break;

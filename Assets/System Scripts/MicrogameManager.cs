@@ -44,7 +44,8 @@ public class MicrogameManager : MonoBehaviour
         "PickAPath",
         "GetToTheEnd",
         "ButtonMashStab",
-        "Build-A-Gun"
+        "Build-A-Gun",
+        "SpotTheDifference",
     };
 
     private List<string> weaponsMicrogames = new List<string>
