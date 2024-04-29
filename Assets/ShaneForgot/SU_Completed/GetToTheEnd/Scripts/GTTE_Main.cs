@@ -90,7 +90,7 @@ public class GTTE_Main : Microgame
     {
         int rnd = Random.Range(0, 3);
         Instantiate(spotlight, spawnPos[rnd], rotation);
-        Debug.Log("Spawn light at: " + spawnPos[rnd]);
+        //Debug.Log("Spawn light at: " + spawnPos[rnd]);
     }
 
     public void EndGTTE()

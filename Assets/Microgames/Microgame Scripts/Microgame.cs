@@ -61,8 +61,6 @@ public abstract class Microgame : MonoBehaviour
     {
         Debug.Log("StopMicrogame");
 
-        
-
         EventManager.current.MicrogameStop(result);
 
         InputManager.current.SetControlsActive(false);

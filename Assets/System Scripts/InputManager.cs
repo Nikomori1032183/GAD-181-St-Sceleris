@@ -78,7 +78,7 @@ public class InputManager : MonoBehaviour
     {
         controlsActive = state;
         
-        Debug.Log("Controls Active Set To: " + controlsActive);
+        //Debug.Log("Controls Active Set To: " + controlsActive);
     }
 
     public bool GetControlsActive()

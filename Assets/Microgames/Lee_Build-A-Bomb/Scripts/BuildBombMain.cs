@@ -5,11 +5,13 @@ using UnityEngine;
 public class BuildBombMain : Microgame
 {
     [SerializeField] List<CorrectPositions> positions;
+    int pieces = 0;
 
     protected override void Start()
     {
         base.Start();
-        EventManager.current.onPieceCorrect += CheckComplete;
+        //Debug.Log(pieces);
+        EventManager.current.onPieceCorrect += PieceCollected;
     }
 
     void Update()
@@ -19,31 +21,24 @@ public class BuildBombMain : Microgame
 
     protected override void PlayMicrogame()
     {
+        Debug.Log(pieces);
         base.PlayMicrogame();
     }
     protected override void StopMicrogame()
     {
+        pieces = 0;
         base.StopMicrogame();
     }
-
-    private void CheckComplete()
+    private void PieceCollected()
     {
-        Debug.Log("CheckComplete");
+        pieces++;
 
-        bool complete = true;
-        foreach (CorrectPositions position in positions)
-        {
-            Debug.Log("Position: " + position.inPos);
-            if (position.inPos == false)
-            {
-                complete = false;
-            }
-        }
-        
-        if (complete)
+        Debug.Log(pieces);
+
+        if (pieces >= positions.Count)
         {
             Debug.Log("Win");
-            result = complete;
+            result = true;
             StopMicrogame();
         }
     }
