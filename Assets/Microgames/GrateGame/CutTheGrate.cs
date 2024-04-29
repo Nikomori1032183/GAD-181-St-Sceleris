@@ -9,6 +9,7 @@ namespace Bars
         [SerializeField] private GameObject[] allBarObjects = new GameObject[5];
         [SerializeField] private BarScript[] allBars = new BarScript[5];
         [SerializeField] private int iterator = 0;
+        [SerializeField] private SparksBehaviour sparks;
         public bool gameDone = false;
         
         protected override void Start()
@@ -55,7 +56,7 @@ namespace Bars
 
             if (!whatever)
             {
-                StopMicrogame();
+                StartCoroutine(DelayStopMicrogame());
                 Debug.Log("MicrogameStopped");
             }
 
@@ -75,6 +76,7 @@ namespace Bars
         }
         private IEnumerator DelayStopMicrogame()
         {
+            sparks.StopParticles();
             yield return new WaitForSeconds(1.2f);
             StopMicrogame();
         }
