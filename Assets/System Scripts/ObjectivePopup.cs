@@ -15,8 +15,7 @@ public class ObjectivePopup : MonoBehaviour
 
     private Image image;
 
-    private bool boolA;
-    private bool boolB;
+    private bool display = false;
 
     private bool hasMoved = false;
 
@@ -31,12 +30,12 @@ public class ObjectivePopup : MonoBehaviour
 
     void Update()
     {
-        if (boolA)
+        if (display)
         {
             Display();
         }
 
-        if (boolB)
+        else
         {
             Hide();
         }
@@ -72,11 +71,15 @@ public class ObjectivePopup : MonoBehaviour
             case "GetToTheEnd":
                 SetSprite(sprites[7]);
                 break;
+            case "Build-A-Gun":
+                SetSprite(sprites[10]);
+                break;
         }
     }
 
     void StartPopup(float displayTime)
     {
+        Debug.Log("StartPopup");
         StartCoroutine(Popup(displayTime));
     }
 
@@ -95,16 +98,14 @@ public class ObjectivePopup : MonoBehaviour
     void DisplayObjective()
     {
         Debug.Log("DisplayObjective");
-        boolA = true;
-        boolB = false;
+        display = true;
     }
 
     [Button]
     void HideObjective()
     {
         Debug.Log("HideObjective");
-        boolB = true;
-        boolA = false;
+        display = false;
     }
 
     void SetSprite(Sprite sprite)

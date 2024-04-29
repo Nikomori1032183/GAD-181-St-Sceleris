@@ -552,9 +552,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c73dfd588c822bc43ab8d72e01361a23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectiveName: Build The Gun
-  objectiveTime: 1
-  playTime: 10
+  objectiveName: Build-A-Gun
+  objectiveTime: 2
+  playTime: 15
   positions:
   - {fileID: 341962789}
   - {fileID: 152259030}

@@ -42,7 +42,8 @@ public class MicrogameManager : MonoBehaviour
         "Build-A-Bomb",
         "LaserTrap",
         "PickAPath",
-        "GetToTheEnd"
+        "GetToTheEnd",
+        "Build-A-Gun"
     };
 
     private List<string> weaponsMicrogames = new List<string>
