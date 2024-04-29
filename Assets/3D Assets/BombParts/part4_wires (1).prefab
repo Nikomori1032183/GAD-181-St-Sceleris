@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e26ebc93b3f3644f880481dbf26a24e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yAxis: 15
+  yAxis: -0.028
