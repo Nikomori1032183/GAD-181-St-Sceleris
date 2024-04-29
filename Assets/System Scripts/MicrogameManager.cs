@@ -38,7 +38,8 @@ public class MicrogameManager : MonoBehaviour
         "GrabTheCash",
         "HideTheContraband",
         "CutTheGrate",
-        "BombDefuse"
+        "BombDefuse",
+        "PickAPath"
 
     };
 
