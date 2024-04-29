@@ -54,6 +54,12 @@ public class ObjectivePopup : MonoBehaviour
             case "HideTheContraband":
                 SetSprite(sprites[1]);
                 break;
+            case "CutTheGrate":
+                SetSprite(sprites[2]);
+                break;
+            case "BombDefuse":
+                SetSprite(sprites[3]);
+                break;
         }
     }
 

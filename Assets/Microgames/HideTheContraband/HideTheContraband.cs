@@ -102,7 +102,7 @@ public class HideTheContraband : Microgame
     {
         contrabandCollected++;
 
-        Debug.Log("Contraband Stashed: " + contrabandCollected);
+        //Debug.Log("Contraband Stashed: " + contrabandCollected);
 
         if (contrabandCollected >= contrabandAmount)
         {

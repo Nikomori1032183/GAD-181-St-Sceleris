@@ -36,7 +36,10 @@ public class MicrogameManager : MonoBehaviour
     private List<string> theftMicrogames = new List<string>
     {
         "GrabTheCash",
-        "HideTheContraband"
+        "HideTheContraband",
+        "CutTheGrate",
+        "BombDefuse"
+
     };
 
     private List<string> weaponsMicrogames = new List<string>

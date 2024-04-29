@@ -16,6 +16,7 @@ public class SparksBehaviour : MonoBehaviour
     {
         InputManager.current.onLeftClickDown += StartParticles;
         InputManager.current.onLeftClickUp += StopParticles;
+        EventManager.current.onMicrogameStop += StopParticles;
     }
 
     // Update is called once per frame
@@ -34,14 +35,24 @@ public class SparksBehaviour : MonoBehaviour
     [Button]
     private void StartParticles()
     {
-        sparksNoise.pitch = (Random.Range(0.9f, 1.1f));
-        sparksNoise.Play();
-        sparks.Play();
+        //Commented Out To Prevent Errors For Now
+        //float pitch = Random.Range(0.9f, 1.1f);
+        //sparksNoise.pitch = pitch;
+        //sparksNoise.Play();
+        //sparks.Play();
     }
     [Button]
     private void StopParticles()
     {
-       sparksNoise.Stop();
-       sparks.Stop();
+        //Commented Out To Prevent Errors For Now
+        //sparksNoise.Stop();
+        //sparks.Stop();
+    }
+
+    private void StopParticles(bool result)
+    {
+        //Commented Out To Prevent Errors For Now
+        //sparksNoise.Stop();
+        //sparks.Stop();
     }
 }

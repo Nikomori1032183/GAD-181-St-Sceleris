@@ -3253,7 +3253,6 @@ GameObject:
   - component: {fileID: 5368707295149269677}
   - component: {fileID: 7882862436627994215}
   - component: {fileID: 9020324409992588553}
-  - component: {fileID: 9020324409992588555}
   - component: {fileID: 9020324409992588554}
   m_Layer: 0
   m_Name: Bomb
@@ -3292,9 +3291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc6d36b29a2f344da824116e548bbbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectiveName: 
-  objectiveTime: 1
-  playTime: 10
+  objectiveName: BombDefuse
+  objectiveTime: 2
+  playTime: 20
   win: {fileID: 8300000, guid: 720f175b3556b3d4c8c95f319b1ae075, type: 3}
   fail: {fileID: 8300000, guid: 0abb60e00624d9244a7264ec47530868, type: 3}
   keyPos:
@@ -3421,21 +3420,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &9020324409992588555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8531350339408164786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 080e9e36967494345b7b33155cf85dd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectivePrefab: {fileID: 5831575317287991996, guid: e1df907e61d195e4cb64ba4b1380d44a, type: 3}
-  moveSpeed: 40
-  timeToWait: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
