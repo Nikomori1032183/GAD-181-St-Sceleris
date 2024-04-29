@@ -80,6 +80,9 @@ public class ObjectivePopup : MonoBehaviour
             case "Build-A-Gun":
                 SetSprite(sprites[10]);
                 break;
+            case "LockPick":
+                SetSprite(sprites[11]);
+                break;
         }
     }
 
