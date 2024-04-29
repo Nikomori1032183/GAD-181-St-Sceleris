@@ -36,6 +36,7 @@ public class BuildBombMain : Microgame
                 complete = false;
             }
         }
+        
 
         Debug.Log(complete);
         result = complete;
