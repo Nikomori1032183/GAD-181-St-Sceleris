@@ -48,7 +48,14 @@ public class Timer : MonoBehaviour
 
     private void UpdateVisual(string timeLeft)
     {
-        text.text = timeLeft;
+        if (timeLeft.Contains("-"))
+        {
+            text.text = " ";
+        }
+        else
+        {
+            text.text = timeLeft;
+        }
         //Debug.Log("Time: " + time);
     }
 

@@ -41,7 +41,7 @@ namespace Bars
             {
                 sfx.clip = barFullCut;
                 sfx.pitch = (Random.Range(0.9f, 1.1f));
-                sfx.PlayDelayed(1.5f);
+                sfx.PlayDelayed(0.5f);
                 Debug.Log("Bar Cut!");
                 mAnimator.SetTrigger("BarBroken");
                 animationPlayed = true;

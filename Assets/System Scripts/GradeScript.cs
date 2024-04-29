@@ -28,8 +28,8 @@ public class GradeScript : MonoBehaviour
     bool doMove = false;
 
     //V3s for moving the reportcard from point A to B
-    private Vector3 screenBottom = new Vector3((Screen.width / 2), (-Screen.height * 1.5f), 0);
-    private Vector3 screenMid = new Vector3((Screen.width / 2), (Screen.height / 3), 0);
+    private Vector3 screenBottom = new Vector3((Screen.width / 2 + 30), (-Screen.height * 1.5f), 0);
+    private Vector3 screenMid = new Vector3((Screen.width / 2 + 30), (Screen.height / 3), 0);
 
     private void Start()
     {
@@ -146,8 +146,9 @@ public class GradeScript : MonoBehaviour
             //Debug.Log(tick);
             image.color = Color.LerpUnclamped(new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), tick/10);
         }
-        if (image.color == new Color(1f, 1f, 1f, 1f))
+        if (tick >= 10)
         {
+            Debug.Log("Signal to fire GradePresented");
             EventManager.current.GradePresented();
         }
     }

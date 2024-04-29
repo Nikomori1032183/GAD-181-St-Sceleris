@@ -58,22 +58,27 @@ public class BombBehaviour : Microgame
             else if (codeInput[codeInput.Count - 1] != codeSolution[iterator - 1])
             {
                 sounds.clip = fail;
-                sounds.PlayDelayed(0.5f);
+                //sounds.PlayDelayed(0.5f);
                 bombStatus.text = "BOOM!";
                 bombStatus.color = Color.red;
                 failure = true;
-                StopMicrogame();
+                StartCoroutine(DelayedStopMicrogame());
             }
         }
         if (codeInput.Count == 5 && !failure)
         {
             sounds.clip = win;
-            sounds.PlayDelayed(0.5f);
+            //sounds.PlayDelayed(0.5f);
             bombStatus.text = "SAFE";
             bombStatus.color = Color.green;
             result = true;
-            StopMicrogame();
+            StartCoroutine(DelayedStopMicrogame());
         }
+    }
+    private IEnumerator DelayedStopMicrogame()
+    {
+        yield return new WaitForSeconds(1.2f);
+        StopMicrogame();
     }
     #endregion
 
