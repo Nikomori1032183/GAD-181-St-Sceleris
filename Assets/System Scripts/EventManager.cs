@@ -216,6 +216,16 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public event Action onDiffBombHighlight;
+
+    public void BombRed()
+    {
+        if(onDiffBombHighlight != null)
+        {
+            onDiffBombHighlight();
+        }
+    }
+
     // Cut the Grate Events
     public event Action onCutBar;
     public void CutBar()
