@@ -323,8 +323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveName: Hide The Contraband
-  objectiveTime: 1
-  playTime: 10
+  objectiveTime: 2
+  playTime: 15
   contrabandPrefab1: {fileID: 6949689291289757032, guid: 8b32b39cfe02c454b91ccb24b011aa6b, type: 3}
   contrabandPrefab2: {fileID: 2300707485084212658, guid: 6b38c05f789daae459d9cff0590fb5e4, type: 3}
   contrabandPrefab3: {fileID: 3206419620579795176, guid: 1762482ddca846b41848f3e5bf1d142d, type: 3}

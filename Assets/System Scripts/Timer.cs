@@ -12,18 +12,25 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         EventManager.current.onMicrogamePlay += TimerStart;
+        EventManager.current.onMicrogameStop += TimerStop;
         text = GetComponent <TMP_Text>();
     }
 
     private void TimerStart(float seconds)
     {
+        //Debug.Log("TimerStart");
+
         time = seconds;
         UpdateVisual(time.ToString());
 
-        Debug.Log("TimerStart");
-
-        StopCoroutine(TimerCoroutine(seconds));
         StartCoroutine(TimerCoroutine(seconds));
+    }
+
+    private void TimerStop(bool result)
+    {
+        StopCoroutine(TimerCoroutine(0));
+        time = 0;
+        UpdateVisual("");
     }
 
     private IEnumerator TimerCoroutine(float seconds)
