@@ -11,6 +11,7 @@ public class GradeScript : MonoBehaviour
     //Arry of different grade images to be indexed
     [SerializeField] private Sprite[] winImages;
     [SerializeField] private Sprite activeImage;
+    float tick = 0;
 
     //Ref for image renderer
     [SerializeField] private UnityEngine.UI.Image image;
@@ -24,7 +25,7 @@ public class GradeScript : MonoBehaviour
 
     //tick controls the opacity transition of grade
     //doMove is because there are no events. when set to true, it moves the report card. ezpz
-    float tick = 0f;
+    float itick = 0f;
     bool doMove = false;
 
     //V3s for moving the reportcard from point A to B
@@ -92,6 +93,7 @@ public class GradeScript : MonoBehaviour
 
         UpdateImage();
         doMove = true;
+        Debug.Log("Setgrade: " + doMove);
 
         //Debug.Log("grade button click");
     }
@@ -130,8 +132,13 @@ public class GradeScript : MonoBehaviour
         {
             Debug.Log("Move The Fucker");
             reportCard.transform.position = Vector3.MoveTowards(reportCard.transform.position, screenMid, Screen.height * Time.deltaTime);
-            if (reportCard.transform.position == screenMid)
+            //bool flip = reportCard.transform.position == screenMid;
+            itick += Time.deltaTime;
+            //Debug.Log(itick);
+            //Debug.Log(flip);
+            if (itick >= 3)
             {
+                Debug.Log("Will grade be visible");
                 GradeBecomeVisible();
             }
         }
@@ -140,6 +147,7 @@ public class GradeScript : MonoBehaviour
     void GradeBecomeVisible()
         //Makes the grade become visible.
     {
+        Debug.Log("Grade will become visible");
         if (image.color != new Color(1f, 1f, 1f, 1f) && tick < 10.1f)
         {
             tick += (Time.deltaTime * 5);
