@@ -28,17 +28,23 @@ public class BuildBombMain : Microgame
 
     private void CheckComplete()
     {
+        Debug.Log("CheckComplete");
+
         bool complete = true;
         foreach (CorrectPositions position in positions)
         {
+            Debug.Log("Position: " + position.inPos);
             if (position.inPos == false)
             {
                 complete = false;
             }
         }
         
-
-        Debug.Log(complete);
-        result = complete;
+        if (complete)
+        {
+            Debug.Log("Win");
+            result = complete;
+            StopMicrogame();
+        }
     }
 }

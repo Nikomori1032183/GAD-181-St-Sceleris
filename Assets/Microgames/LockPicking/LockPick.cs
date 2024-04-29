@@ -31,71 +31,72 @@ public class LockPick : Microgame
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition = pickPosition.position;//lock pin pos
+        //transform.localPosition = pickPosition.position;//lock pin pos
 
-        if (movePick)
-        {
-            Vector3 dir = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
+        //if (movePick)
+        //{
+        //    //Vector3 dir = Input.mousePosition - cam.WorldToScreenPoint(transform.position);
 
-            eulerAngle = Vector3.Angle(dir, Vector3.up);//axis it will rotate around
+        //    eulerAngle = Vector3.Angle(dir, Vector3.up);//axis it will rotate around
 
-            Vector3 cross = Vector3.Cross(Vector3.up, dir);
-            if (cross.z < 0)
-            {
-                eulerAngle = -eulerAngle;
-            }
+        //    Vector3 cross = Vector3.Cross(Vector3.up, dir);
+        //    if (cross.z < 0)
+        //    {
+        //        eulerAngle = -eulerAngle;
+        //    }
 
-            eulerAngle = Mathf.Clamp(eulerAngle, -maxAngle, maxAngle);//bounds
+        //    eulerAngle = Mathf.Clamp(eulerAngle, -maxAngle, maxAngle);//bounds
 
-            Quaternion rotateTo = Quaternion.AngleAxis(eulerAngle, Vector3.forward);
-            transform.rotation = rotateTo;
-        }
+        //    Quaternion rotateTo = Quaternion.AngleAxis(eulerAngle, Vector3.forward);
+        //    transform.rotation = rotateTo;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            movePick = false;
-            keyPressTime = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            movePick = true;
-            keyPressTime = 0;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    movePick = false;
+        //    keyPressTime = 1;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            StopMicrogame();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    movePick = true;
+        //    keyPressTime = 0;
+        //}
 
-        float percentage = Mathf.Round(100 - Mathf.Abs(((eulerAngle - unlockAngle) / 100) * 100));
-        float lockRotation = ((percentage / 100) * maxAngle) * keyPressTime;
-        float maxRotation = (percentage / 100) * maxAngle;
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    StopMicrogame();
+        //}
 
-        float lockLerp = Mathf.Lerp(innerLock.eulerAngles.z, lockRotation, Time.deltaTime * lockSpeed);
-        innerLock.eulerAngles = new Vector3(0, 0, lockLerp);
+        //float percentage = Mathf.Round(100 - Mathf.Abs(((eulerAngle - unlockAngle) / 100) * 100));
+        //float lockRotation = ((percentage / 100) * maxAngle) * keyPressTime;
+        //float maxRotation = (percentage / 100) * maxAngle;
 
-        if (lockLerp >= maxRotation - 1)
-        {
-            if (eulerAngle < unlockRange.y && eulerAngle > unlockRange.x)
-            {
-                Debug.Log("Lock is unlocked!"); //win log
-                newLock();
-                movePick = true;
-                keyPressTime = 0;
-                result = true;
+        //float lockLerp = Mathf.Lerp(innerLock.eulerAngles.z, lockRotation, Time.deltaTime * lockSpeed);
+        //innerLock.eulerAngles = new Vector3(0, 0, lockLerp);
 
-                StopMicrogame();
+        //if (lockLerp >= maxRotation - 1)
+        //{
+        //    if (eulerAngle < unlockRange.y && eulerAngle > unlockRange.x)
+        //    {
+        //        Debug.Log("Lock is unlocked!"); //win log
+        //        newLock();
+        //        movePick = true;
+        //        keyPressTime = 0;
+        //        result = true;
 
-            }
-            else
-            {
-                float randomRotation = Random.insideUnitCircle.x;
-                transform.eulerAngles += new Vector3(0, 0, Random.Range(-randomRotation, randomRotation));
+        //        StopMicrogame();
 
-                result = false;
-            }
+        //    }
+        //    else
+        //    {
+        //        float randomRotation = Random.insideUnitCircle.x;
+        //        transform.eulerAngles += new Vector3(0, 0, Random.Range(-randomRotation, randomRotation));
+
+        //        result = false;
+        //    }
            
-        }
+        //}
     }
 
     void newLock()
