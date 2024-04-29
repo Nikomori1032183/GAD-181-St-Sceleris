@@ -43,6 +43,7 @@ public class MicrogameManager : MonoBehaviour
         "LaserTrap",
         "PickAPath",
         "GetToTheEnd",
+        "ButtonMashStab",
         "Build-A-Gun"
     };
 
