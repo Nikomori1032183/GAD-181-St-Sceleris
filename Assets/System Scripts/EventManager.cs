@@ -234,4 +234,14 @@ public class EventManager : MonoBehaviour
             onContrabandStashed();
         }
     }
+
+    // Build A Bomb Events
+    public event Action onPieceCorrect;
+    public void PieceCorrect()
+    {
+        if (onPieceCorrect != null)
+        {
+            onPieceCorrect();
+        }
+    }
 }
