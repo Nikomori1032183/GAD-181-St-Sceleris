@@ -39,6 +39,5 @@ public class MainMenu : MonoBehaviour
         EventManager.current.MainMenuExit();
 
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
     }
 }

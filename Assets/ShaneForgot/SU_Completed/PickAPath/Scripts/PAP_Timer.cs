@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using VInspector.Libs;
 
 public class PAP_Timer : MonoBehaviour
 {
@@ -37,6 +36,6 @@ public class PAP_Timer : MonoBehaviour
     {
         timeRemaining -= Time.deltaTime;
         policeLight.range += Time.deltaTime;
-        textMeshPro.text = timeRemaining.Round() + " Seconds Left";
+        //textMeshPro.text = timeRemaining.Round() + " Seconds Left";
     }
 }

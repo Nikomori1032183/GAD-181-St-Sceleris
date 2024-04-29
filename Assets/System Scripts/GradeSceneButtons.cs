@@ -37,7 +37,7 @@ public class GradeSceneButtons : MonoBehaviour
         EventManager.current.MainMenuExit();
 
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+
     }
     [Button]
     void RevealButtons()
