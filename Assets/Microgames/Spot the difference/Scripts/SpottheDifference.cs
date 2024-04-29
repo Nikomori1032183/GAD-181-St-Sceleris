@@ -8,6 +8,7 @@ public class SpotheDifference : Microgame
     [SerializeField] ChangeColourOnClick diffBomb;
     [SerializeField] int bombPartHighlight = 3;
     int bombPartHighlighted = 0;
+    bool playing;
 
     override protected void Start()
     {
@@ -19,11 +20,13 @@ public class SpotheDifference : Microgame
     override protected void PlayMicrogame()
     {
         base.PlayMicrogame();
+        playing = true;
     }
 
     override protected void StopMicrogame()
     {
         base.StopMicrogame();
+        playing = false;
     }
 
     void BombRed()

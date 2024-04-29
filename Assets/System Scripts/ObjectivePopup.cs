@@ -71,6 +71,9 @@ public class ObjectivePopup : MonoBehaviour
             case "GetToTheEnd":
                 SetSprite(sprites[7]);
                 break;
+            case "ButtonMashStab":
+                SetSprite(sprites[9]);
+                break;
             case "Build-A-Gun":
                 SetSprite(sprites[10]);
                 break;

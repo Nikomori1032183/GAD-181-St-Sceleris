@@ -45,8 +45,8 @@ public class ButtonMashStab : Microgame
         if (timesStabbed >= stabQuota)
         {
             result = true;
+            StopMicrogame();
             Debug.Log("You Won!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
