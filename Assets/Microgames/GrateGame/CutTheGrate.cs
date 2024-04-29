@@ -76,7 +76,7 @@ namespace Bars
         }
         private IEnumerator DelayStopMicrogame()
         {
-            sparks.StopParticles();
+            Destroy(sparks.gameObject);
             yield return new WaitForSeconds(1.2f);
             StopMicrogame();
         }

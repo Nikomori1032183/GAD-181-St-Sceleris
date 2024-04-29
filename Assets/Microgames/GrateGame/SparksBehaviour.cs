@@ -41,24 +41,33 @@ public class SparksBehaviour : MonoBehaviour
     [Button]
     private void StartParticles()
     {
-        //Commented Out To Prevent Errors For Now
-        //float pitch = Random.Range(0.9f, 1.1f);
-        //sparksNoise.pitch = pitch;
-        //sparksNoise.Play();
-        //sparks.Play();
+        if (sparks != null && sparksNoise != null)
+        {
+            //Commented Out To Prevent Errors For Now
+            float pitch = Random.Range(0.9f, 1.1f);
+            sparksNoise.pitch = pitch;
+            sparksNoise.Play();
+            sparks.Play();
+        }
     }
     [Button]
     public void StopParticles()
     {
-        //Commented Out To Prevent Errors For Now
-        //sparksNoise.Stop();
-        //sparks.Stop();
+        if (sparks != null && sparksNoise != null)
+        {
+            //Commented Out To Prevent Errors For Now
+            sparksNoise.Stop();
+            sparks.Stop();
+        }
     }
 
     private void StopParticles(bool result)
     {
-        //Commented Out To Prevent Errors For Now
-        //sparksNoise.Stop();
-        //sparks.Stop();
+        if (sparks != null && sparksNoise != null)
+        {
+            //Commented Out To Prevent Errors For Now
+            sparksNoise.Stop();
+            sparks.Stop();
+        }
     }
 }
