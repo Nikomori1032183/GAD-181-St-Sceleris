@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     AudioSource music;
 
     // SFX
-    [SerializeField] AudioClip buttonClick, sfx2, sfx3;
+    [SerializeField] AudioClip buttonClickSFX, winSFX, loseSFX;
 
     // Music
     AudioClip mainMenu, track2, track3;
@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
 
         // Events
         EventManager.current.onMainMenuPlay += PlayButton;
+        EventManager.current.onMicrogameStop += MicrogameFinished;
     }
 
     // Main Methods
@@ -65,7 +66,22 @@ public class AudioManager : MonoBehaviour
     // SFX
     private void PlayButton()
     {
-        SetSFXSound(buttonClick);
+        SetSFXSound(buttonClickSFX);
+        PlaySFXSound();
+    }
+
+    private void MicrogameFinished(bool result)
+    {
+        if (result)
+        {
+            SetSFXSound(winSFX);
+        }
+
+        else
+        {
+            SetSFXSound(loseSFX);
+        }
+        
         PlaySFXSound();
     }
 }

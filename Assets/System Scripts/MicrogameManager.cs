@@ -77,7 +77,7 @@ public class MicrogameManager : MonoBehaviour
     {
         EventManager.current.onClassSelect += SelectClass;
         EventManager.current.onActiveSceneSet += DelayedLoadMicrogame;
-        EventManager.current.onMicrogameStop += MicrogameFinished;
+        EventManager.current.onMicrogameStop += StartDelayForSFX;
     }
 
     private void SelectClass(EventManager.SelectableClasses selectedClass)
@@ -147,6 +147,17 @@ public class MicrogameManager : MonoBehaviour
     private void StartMicrogame()
     {
         currentMicrogame.StartMicrogame();
+    }
+
+    private void StartDelayForSFX(bool result)
+    {
+        StartCoroutine(DelayForSFX(result));
+    }
+
+    private IEnumerator DelayForSFX(bool result)
+    {
+        yield return new WaitForSeconds(1);
+        MicrogameFinished(result);
     }
 
     private void MicrogameFinished(bool result)
