@@ -25,23 +25,33 @@ MonoBehaviour:
     - 9342b381b465a994fbc9ab37ee89029d
     - fa19e930619d8c545b69b11062e34eb1
     - 99a5cfab23b406b41bf67569e3625d6f
+    - f61266e95f42e3c40afd4564a47391c5
     values:
     - goDatasByGlobalId:
         keys:
         - GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-963194225-0
         - GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-705507993-0
+        - GlobalObjectId_V1-2-9fc0d4010bbf28b4594072e72b8655ab-1753279922-0
         values:
         - iColor: 0
           icon: Camera Icon
         - iColor: 0
           icon: Light Icon
+        - iColor: 0
+          icon: DirectionalLight Icon
       goDatasByInstanceId:
-        keys: bc5a0000b65a0000
+        keys: bc5a0000b65a0000a27400009c740000ac740000
         values:
         - iColor: 0
           icon: Camera Icon
         - iColor: 0
           icon: Light Icon
+        - iColor: 0
+          icon: Camera Icon
+        - iColor: 0
+          icon: Light Icon
+        - iColor: 0
+          icon: DirectionalLight Icon
     - goDatasByGlobalId:
         keys: []
         values: []
@@ -105,18 +115,19 @@ MonoBehaviour:
     - goDatasByGlobalId:
         keys:
         - GlobalObjectId_V1-2-e897b116599b52b48acab40453a088c0-602043019-0
-        - GlobalObjectId_V1-2-e897b116599b52b48acab40453a088c0-1753279922-0
         - GlobalObjectId_V1-2-e897b116599b52b48acab40453a088c0-357889853-0
         values:
         - iColor: 0
           icon: Canvas Icon
         - iColor: 0
-          icon: EventSystem Icon
-        - iColor: 0
           icon: PreMatQuad
       goDatasByInstanceId:
-        keys: 
-        values: []
+        keys: 6c74000052740000
+        values:
+        - iColor: 0
+          icon: Canvas Icon
+        - iColor: 0
+          icon: PreMatQuad
     - goDatasByGlobalId:
         keys:
         - GlobalObjectId_V1-2-5bff50d4f6f629f45a29a59c9cb8946c-2052953025-0
@@ -137,27 +148,41 @@ MonoBehaviour:
     - goDatasByGlobalId:
         keys:
         - GlobalObjectId_V1-2-9342b381b465a994fbc9ab37ee89029d-401600579-0
-        - GlobalObjectId_V1-2-9342b381b465a994fbc9ab37ee89029d-1322013616-0
-        - GlobalObjectId_V1-2-9342b381b465a994fbc9ab37ee89029d-622995054-0
-        - GlobalObjectId_V1-2-9342b381b465a994fbc9ab37ee89029d-1624346399-0
         values:
         - iColor: 0
           icon: Canvas Icon
-        - iColor: 0
-          icon: 
-        - iColor: 0
-          icon: EventSystem Icon
-        - iColor: 0
-          icon: 
       goDatasByInstanceId:
-        keys: 
-        values: []
+        keys: f0740000
+        values:
+        - iColor: 0
+          icon: Canvas Icon
     - goDatasByGlobalId:
         keys: []
         values: []
       goDatasByInstanceId:
         keys: 
         values: []
+    - goDatasByGlobalId:
+        keys:
+        - GlobalObjectId_V1-2-99a5cfab23b406b41bf67569e3625d6f-1021708177-0
+        - GlobalObjectId_V1-2-99a5cfab23b406b41bf67569e3625d6f-865928263-0
+        - GlobalObjectId_V1-2-99a5cfab23b406b41bf67569e3625d6f-489998439-0
+        values:
+        - iColor: 0
+          icon: cs Script Icon
+        - iColor: 0
+          icon: cs Script Icon
+        - iColor: 0
+          icon: Canvas Icon
+      goDatasByInstanceId:
+        keys: d850ffff9e5a0000945a0000
+        values:
+        - iColor: 0
+          icon: cs Script Icon
+        - iColor: 0
+          icon: cs Script Icon
+        - iColor: 0
+          icon: Canvas Icon
     - goDatasByGlobalId:
         keys: []
         values: []
