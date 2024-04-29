@@ -18,28 +18,30 @@ public class EventManager : MonoBehaviour
     public event Action<string> onMicrogameSelected;
     public void SelectMicrogame(string microgameName)
     {
+        Debug.Log("Microgame Selected");
+
         if (onMicrogameSelected != null)
         {
             onMicrogameSelected(microgameName);
         }
     }
 
-    [Button]
-    public void TestGameComplete()
-    {
-        GameComplete(4);
-    }
+    //[Button]
+    //public void TestGameComplete()
+    //{
+    //    GameComplete(4);
+    //}
 
     public event Action<int> onGameComplete;
     public void GameComplete(int wins)
     {
-        Debug.Log("GameComplete");
+        //Debug.Log("GameComplete");
+
         if (onGameComplete != null)
         {
             onGameComplete(wins);
         }
     }
-
 
     // Scene Loader Events
     public event Action<Scene> onActiveSceneSet;

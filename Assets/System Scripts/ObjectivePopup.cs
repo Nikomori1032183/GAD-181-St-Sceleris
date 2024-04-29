@@ -6,6 +6,8 @@ using VInspector;
 
 public class ObjectivePopup : MonoBehaviour
 {
+    [SerializeField] private List<Sprite> sprites;
+
     [SerializeField] private int moveSpeed = 500;
 
     [SerializeField] private Vector3 displayPos;
@@ -23,6 +25,7 @@ public class ObjectivePopup : MonoBehaviour
         image = GetComponent<Image>();
 
         EventManager.current.onPopup += StartPopup;
+        EventManager.current.onMicrogameSelected += SetMicrogamePopup;
     }
 
 
@@ -36,6 +39,18 @@ public class ObjectivePopup : MonoBehaviour
         if (boolB)
         {
             Hide();
+        }
+    }
+
+    private void SetMicrogamePopup(string microgameName)
+    {
+        Debug.Log("Trying To Set" + microgameName);
+
+        switch (microgameName)
+        {
+            case "GrabTheCash":
+                SetSprite(sprites[0]);
+                break;
         }
     }
 

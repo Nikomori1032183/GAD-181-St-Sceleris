@@ -139,6 +139,7 @@ public class MicrogameManager : MonoBehaviour
             currentMicrogameClass.Remove(currentMicrogameName);
 
             Debug.Log("Microgame Loaded");
+            EventManager.current.SelectMicrogame(currentMicrogameName);
 
             StartMicrogame();
         }

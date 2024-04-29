@@ -276,6 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b557f94faec682649a48be96bb164bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 89ff99c9c0f599d4aa438f19fef6ffff, type: 3}
   moveSpeed: 1000
   displayPos: {x: 650, y: 500, z: 0}
   hidePos: {x: 650, y: -250, z: 0}
