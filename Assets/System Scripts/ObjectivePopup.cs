@@ -9,9 +9,10 @@ public class ObjectivePopup : MonoBehaviour
     [SerializeField] private List<Sprite> sprites;
 
     [SerializeField] private int moveSpeed = 500;
+    private RectTransform iTransform;
 
-    [SerializeField] private Vector3 displayPos;
-    [SerializeField] private Vector3 hidePos;
+    private Vector3 displayPos = new Vector3(Screen.width/2, Screen.height/2, 0);
+    private Vector3 hidePos = new Vector3(Screen.width/2, -Screen.height, 0);
 
     private Image image;
 
@@ -21,8 +22,12 @@ public class ObjectivePopup : MonoBehaviour
 
     private void Start()
     {
+        iTransform = GetComponent<RectTransform>();
         image = GetComponent<Image>();
 
+        Debug.Log(iTransform.position);
+        Debug.Log(displayPos);
+        Debug.Log(hidePos);
         EventManager.current.onPopup += StartPopup;
         EventManager.current.onMicrogameSelected += SetMicrogamePopup;
     }
@@ -124,12 +129,12 @@ public class ObjectivePopup : MonoBehaviour
 
     void Display()
     {
-        if (!hasMoved && transform.position != displayPos)
+        if (!hasMoved && iTransform.position != displayPos)
         {
-            transform.position = Vector3.MoveTowards(transform.position, displayPos, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(iTransform.position, displayPos, moveSpeed * Time.deltaTime);
         }
 
-        if (!hasMoved && transform.position == displayPos)
+        if (!hasMoved && iTransform.position == displayPos)
         {
 
             hasMoved = true;
@@ -139,7 +144,7 @@ public class ObjectivePopup : MonoBehaviour
     {
         if (hasMoved)
         {
-            transform.position = Vector3.MoveTowards(transform.position, hidePos, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(iTransform.position, hidePos, moveSpeed * Time.deltaTime);
         }
 
         if (hasMoved && transform.position == hidePos)
