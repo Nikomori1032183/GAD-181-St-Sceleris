@@ -37,7 +37,7 @@ public class GTTE_Main : Microgame
         if (slider == null) slider = GetComponentInChildren<Slider>();
         if (player == null) player = FindAnyObjectByType<GTTE_Player>();
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
-        StartInfo.SetActive(true);
+        //StartInfo.SetActive(true);
         spawnPos.Add(bottom); spawnPos.Add(mid); spawnPos.Add(top);
     }
 
@@ -80,7 +80,7 @@ public class GTTE_Main : Microgame
     public void StartGTTE()
     {
         Debug.Log("Class starting");
-        StartInfo.SetActive(false);
+        //StartInfo.SetActive(false);
         GTTEPlaying = true;
         player.playerAudioSource.Play();
         SpawnSpotLights();

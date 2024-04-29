@@ -87,7 +87,7 @@ public class PAP_Main : Microgame
     public void startClass()
     {
         Debug.Log("Class Begins");
-        gameStart.SetActive(false);
+        //gameStart.SetActive(false);
         PAPInPlay = true;
         newDoor();
     }
