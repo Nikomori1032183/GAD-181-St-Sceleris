@@ -59,7 +59,7 @@ public class GTTE_Player : MonoBehaviour
         vel.y = ySpeed;
         charCon.Move(vel * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             ySpeed = -0.5f;
             isGrounded = true;
@@ -73,7 +73,7 @@ public class GTTE_Player : MonoBehaviour
             dblJump = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (isGrounded)
             {

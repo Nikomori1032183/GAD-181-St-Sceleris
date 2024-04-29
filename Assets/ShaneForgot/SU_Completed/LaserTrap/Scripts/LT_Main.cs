@@ -31,7 +31,7 @@ public class LT_Main : Microgame
         LT_Player_SU.inPlay = true;
         LT_Player_SU.audioSource.Play();
         laserScript.laserOn(true);
-        gameStart.SetActive(false);
+        //gameStart.SetActive(false);
     }
 
     public void LTGameEnd() 
@@ -39,7 +39,7 @@ public class LT_Main : Microgame
         LT_Player_SU.inPlay = false;
         LT_Player_SU.audioSource.Stop();
         laserScript.laserOn(false);
-        gameEnd.SetActive(true);
+        //gameEnd.SetActive(true);
         result = win;
         StopMicrogame();
     }

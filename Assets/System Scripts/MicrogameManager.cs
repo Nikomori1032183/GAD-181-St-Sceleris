@@ -39,9 +39,9 @@ public class MicrogameManager : MonoBehaviour
         "HideTheContraband",
         "CutTheGrate",
         "BombDefuse",
+        "LaserTrap",
         "PickAPath",
         "GetToTheEnd"
-
     };
 
     private List<string> weaponsMicrogames = new List<string>
