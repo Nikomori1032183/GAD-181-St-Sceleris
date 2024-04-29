@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Microgames/Spot the difference/Scenes/Spot the Difference.unity
+    path: Assets/Microgames/Spot the difference/Scenes/SpotTheDifference.unity
     guid: e1b66efbb269f414bbcb14abc16a435f
   - enabled: 1
     path: Assets/Microgames/Spot the difference/Scenes/Congrats grade.unity

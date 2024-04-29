@@ -50,7 +50,7 @@ public class SpotheDifference : Microgame
         {
             result = true;
             Debug.Log("You Win!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StopMicrogame();
         }
     }
 }
