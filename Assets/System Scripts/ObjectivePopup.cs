@@ -60,6 +60,9 @@ public class ObjectivePopup : MonoBehaviour
             case "BombDefuse":
                 SetSprite(sprites[3]);
                 break;
+            case "Build-A-Bomb":
+                SetSprite(sprites[4]);
+                break;
             case "LaserTrap":
                 SetSprite(sprites[5]);
                 break;

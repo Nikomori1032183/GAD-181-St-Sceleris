@@ -39,6 +39,7 @@ public class MicrogameManager : MonoBehaviour
         "HideTheContraband",
         "CutTheGrate",
         "BombDefuse",
+        "Build-A-Bomb",
         "LaserTrap",
         "PickAPath",
         "GetToTheEnd"
