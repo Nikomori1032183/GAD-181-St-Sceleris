@@ -63,6 +63,9 @@ public class ObjectivePopup : MonoBehaviour
             case "PickAPath":
                 SetSprite(sprites[6]);
                 break;
+            case "GetToTheEnd":
+                SetSprite(sprites[7]);
+                break;
         }
     }
 

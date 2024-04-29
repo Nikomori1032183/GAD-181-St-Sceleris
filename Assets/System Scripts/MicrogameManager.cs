@@ -39,7 +39,8 @@ public class MicrogameManager : MonoBehaviour
         "HideTheContraband",
         "CutTheGrate",
         "BombDefuse",
-        "PickAPath"
+        "PickAPath",
+        "GetToTheEnd"
 
     };
 
