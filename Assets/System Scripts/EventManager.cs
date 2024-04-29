@@ -179,6 +179,7 @@ public class EventManager : MonoBehaviour
     public event Action onGradePresented;
     public void GradePresented()
     {
+        Debug.Log("Event fired GradePresented");
         if (onGradePresented != null)
         {
             onGradePresented();

@@ -69,9 +69,14 @@ namespace Bars
                 {
                     result = true;
                     gameDone = true;
-                    StopMicrogame();
+                    StartCoroutine(DelayStopMicrogame());
                 }
             }
+        }
+        private IEnumerator DelayStopMicrogame()
+        {
+            yield return new WaitForSeconds(1.2f);
+            StopMicrogame();
         }
         public void IterateBarCount()
         {
