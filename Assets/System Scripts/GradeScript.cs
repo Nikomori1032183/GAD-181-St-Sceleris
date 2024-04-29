@@ -29,7 +29,7 @@ public class GradeScript : MonoBehaviour
 
     //V3s for moving the reportcard from point A to B
     private Vector3 screenBottom = new Vector3((Screen.width / 2), (-Screen.height * 1.5f), 0);
-    private Vector3 screenMid = new Vector3((Screen.width / 2), ((Screen.height / 4)), 0);
+    private Vector3 screenMid = new Vector3((Screen.width / 2), ((Screen.height / 5)), 0);
 
     private void Start()
     {
