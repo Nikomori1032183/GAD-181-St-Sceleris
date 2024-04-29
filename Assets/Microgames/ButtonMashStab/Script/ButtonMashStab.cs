@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VInspector;
+using UnityEngine.SceneManagement;
+
 
 public class ButtonMashStab : Microgame
 {
     [SerializeField] KnifeMovement knife;
-    [SerializeField] int stabQuota;
+    [SerializeField] int stabQuota = 10;
     int timesStabbed = 0;
 
     override protected void Start()
     {
         base.Start();
-        InputManager.current.onLeftClick += Stab;
+        InputManager.current.onLeftClickDown += Stab;
         EventManager.current.onGuardStab += GuardStabbed;
     }
 
@@ -40,11 +41,12 @@ public class ButtonMashStab : Microgame
         Debug.Log(timesStabbed);
 
         knife.SetReturning(true);
-        
+
         if (timesStabbed >= stabQuota)
         {
             result = true;
             Debug.Log("You Won!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
