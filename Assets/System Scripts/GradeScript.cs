@@ -28,8 +28,8 @@ public class GradeScript : MonoBehaviour
     bool doMove = false;
 
     //V3s for moving the reportcard from point A to B
-    private Vector3 screenBottom = new Vector3((Screen.width / 2 + Screen.width/4), (-Screen.height * 1.5f), 0);
-    private Vector3 screenMid = new Vector3((Screen.width / 2 + Screen.width/4), ((Screen.height / 4 + Screen.height/6)), 0);
+    private Vector3 screenBottom = new Vector3((Screen.width / 2), (-Screen.height * 1.5f), 0);
+    private Vector3 screenMid = new Vector3((Screen.width / 2), ((Screen.height / 4)), 0);
 
     private void Start()
     {
