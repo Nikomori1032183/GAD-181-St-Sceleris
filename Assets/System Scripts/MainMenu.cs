@@ -2,19 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    Button startButton, exitButton;
+    //Button startButton, exitButton;
 
     void Start()
     {
-        Button[] buttons = GetComponentsInChildren<Button>();
-        startButton = buttons[0];
-        exitButton = buttons[1];
+        //Button[] buttons = GetComponentsInChildren<Button>();
+        //startButton = buttons[0];
+        //exitButton = buttons[1];
 
-        startButton.onClick.AddListener(PlayButton);
-        exitButton.onClick.AddListener(ExitButton);
+        //startButton.onClick.AddListener(PlayButton);
+        //exitButton.onClick.AddListener(ExitButton);
+
+        Debug.Log("Main Menu EXISTS");
+
+        //SceneManager.LoadScene("GameLogic");
+        //SceneManager.LoadScene("MainScene");
     }
 
     void Update()
@@ -23,7 +29,7 @@ public class MainMenu : MonoBehaviour
     }
 
     // Play - Open Level Select
-    private void PlayButton()
+    public void PlayButton()
     {
         Debug.Log("Play Button Click");
 
@@ -32,7 +38,7 @@ public class MainMenu : MonoBehaviour
     }
 
     // Exit - Close Application
-    private void ExitButton()
+    public void ExitButton()
     {
         Debug.Log("Exit Button Click");
 

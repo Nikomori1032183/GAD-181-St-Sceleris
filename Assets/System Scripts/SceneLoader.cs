@@ -9,11 +9,17 @@ public class SceneLoader : MonoBehaviour
 {
     public static SceneLoader current;
 
-    void Start()
+    void Awake()
     {
         current = this;
 
+        Debug.Log("SCENE LOADER EXISTS");
+
         SceneManager.sceneLoaded += SetActiveScene;
+
+        LoadScene("MainScene");
+        LoadScene("Microgame UI");
+        LoadScene("MainMenu");
     }
 
     // Load Scene By Name
@@ -21,7 +27,7 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         Scene scene = SceneManager.GetSceneByName(sceneName);
-        //Debug.Log(sceneName + "Scene Loaded");
+        Debug.Log(sceneName + "Scene Loaded");
     }
 
     // Unload Scene By Name

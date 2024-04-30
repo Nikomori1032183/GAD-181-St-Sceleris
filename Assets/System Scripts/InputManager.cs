@@ -38,7 +38,10 @@ public class InputManager : MonoBehaviour
         }
 
         // Mouse Position
-        mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, (Input.mousePosition.y), Camera.main.transform.position.y));
+        if (Camera.main != null)
+        {
+            mousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, (Input.mousePosition.y), Camera.main.transform.position.y));
+        }
     }
 
     // Input Events

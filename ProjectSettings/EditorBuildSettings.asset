@@ -6,60 +6,57 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/System Scenes/MainMenu.unity
-    guid: e897b116599b52b48acab40453a088c0
+    path: Assets/System Scenes/GameLogic.unity
+    guid: 281a480bd1d0a344ebdf7fe7814249a0
   - enabled: 1
     path: Assets/System Scenes/MainScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/System Scenes/GameLogic.unity
-    guid: 281a480bd1d0a344ebdf7fe7814249a0
-  - enabled: 1
     path: Assets/System Scenes/Microgame UI.unity
     guid: 99a5cfab23b406b41bf67569e3625d6f
   - enabled: 1
-    path: Assets/System Scenes/Audio.unity
-    guid: 5bff50d4f6f629f45a29a59c9cb8946c
+    path: Assets/System Scenes/MainMenu.unity
+    guid: e897b116599b52b48acab40453a088c0
   - enabled: 1
     path: Assets/System Scenes/LevelSelect.unity
     guid: 9342b381b465a994fbc9ab37ee89029d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Microgames/GrabTheCash/GrabTheCash.unity
     guid: fa19e930619d8c545b69b11062e34eb1
-  - enabled: 0
-    path: Assets/Microgames/ButtonMashStab/Scenes/ButtonMashStab.unity
-    guid: 15e1a483d6a3bce498a7e89999881b7e
-  - enabled: 0
-    path: Assets/Microgames/GrateGame/CutTheGrate.unity
-    guid: 4236c577917e8f040b8bdc41e967d9f0
-  - enabled: 0
-    path: Assets/Microgames/Lee_Build-A-Bomb/Build-A-Gun.unity
-    guid: 44c2845bd1ab64b48bf79c27dc2f3d1d
-  - enabled: 0
-    path: Assets/Microgames/Lee_Build-A-Bomb/Build-A-Bomb.unity
-    guid: 8a19bb652c6ce2c46afc7d0fba5ae88d
-  - enabled: 0
-    path: Assets/Microgames/BombDefuse/BombDefuse.unity
-    guid: f99353900f8e2454a94936db21332b9f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Microgames/HideTheContraband/HideTheContraband.unity
     guid: 004228b9daf67e042846c434762b15a3
-  - enabled: 0
-    path: Assets/ShaneForgot/SU_Completed/GetToTheEnd/Scene/GetToTheEnd.unity
-    guid: 1c241e186d7f7da4c8c0a149b49de665
-  - enabled: 0
-    path: Assets/ShaneForgot/SU_Completed/LaserTrap/Scene/LaserTrap.unity
-    guid: be25d3cc4367e4a44be55234ea32df5d
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Microgames/GrateGame/CutTheGrate.unity
+    guid: 4236c577917e8f040b8bdc41e967d9f0
+  - enabled: 1
+    path: Assets/Microgames/BombDefuse/BombDefuse.unity
+    guid: f99353900f8e2454a94936db21332b9f
+  - enabled: 1
     path: Assets/ShaneForgot/SU_Completed/PickAPath/Scene/PickAPath.unity
     guid: 74828fdb16eea1d4088ffb6b9a6cdb16
-  - enabled: 0
-    path: Assets/Microgames/LockPicking/Scenes/LockPick.unity
-    guid: 26ff8ad225dd2a7458cc2194219e1ab6
-  - enabled: 0
+  - enabled: 1
+    path: Assets/ShaneForgot/SU_Completed/GetToTheEnd/Scene/GetToTheEnd.unity
+    guid: 1c241e186d7f7da4c8c0a149b49de665
+  - enabled: 1
+    path: Assets/ShaneForgot/SU_Completed/LaserTrap/Scene/LaserTrap.unity
+    guid: be25d3cc4367e4a44be55234ea32df5d
+  - enabled: 1
+    path: Assets/Microgames/Lee_Build-A-Bomb/Build-A-Bomb.unity
+    guid: 8a19bb652c6ce2c46afc7d0fba5ae88d
+  - enabled: 1
+    path: Assets/Microgames/Lee_Build-A-Bomb/Build-A-Gun.unity
+    guid: 44c2845bd1ab64b48bf79c27dc2f3d1d
+  - enabled: 1
+    path: Assets/Microgames/ButtonMashStab/Scenes/ButtonMashStab.unity
+    guid: 15e1a483d6a3bce498a7e89999881b7e
+  - enabled: 1
     path: Assets/Microgames/Spot the difference/Scenes/SpotTheDifference.unity
     guid: e1b66efbb269f414bbcb14abc16a435f
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Microgames/LockPicking/Scenes/LockPick.unity
+    guid: 26ff8ad225dd2a7458cc2194219e1ab6
+  - enabled: 1
     path: Assets/System Scenes/GradeScene.unity
     guid: f61266e95f42e3c40afd4564a47391c5
   m_configObjects: {}
